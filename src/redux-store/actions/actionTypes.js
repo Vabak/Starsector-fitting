@@ -1,0 +1,6 @@
+export const FETCH_MODS_START = 'FETCH_MODS_START';
+export const FETCH_MODS_FAIL = 'FETCH_MODS_FAIL';
+export const FETCH_MODS_SUCCESS= 'FETCH_MODS';
+
+
+// export const FETCH_SHIPS_BY_MODE = 'FETCH_SHIPS_BY_MODE';

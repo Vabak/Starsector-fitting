@@ -5,7 +5,9 @@ class SelectionPage extends Component {
     state = {}
     render() { 
         return (
+            <div>
             <SelectionList />
+            </div>
         );
     }
 }
