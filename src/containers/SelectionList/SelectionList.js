@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../axios-base'
 import { connect } from 'react-redux';
-import { fetchShipsByParam } from '../../redux-store/actions/selectionPage'
+import * as actions from '../../redux-store/actions/selectionPage'
 
 import Select from '../../components/Select/Select';
 
@@ -71,7 +71,7 @@ class SelectionList extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchShips: (param) => dispatch(fetchShipsByParam(param))
+        onFetchShips: (param) => dispatch(actions.fetchShipsByParam(param))
     };
 };
 

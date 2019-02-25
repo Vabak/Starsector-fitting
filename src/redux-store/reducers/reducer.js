@@ -4,14 +4,15 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     ships: [],
+    error: null,
 }
 
 const fetchShipsByParamStart = ( state, action ) => {
-    return updateObject( state, { loading: false } );
+    return updateObject( state, action );
 };
 
 const fetchShipsByParamFail = ( state, action ) => {
-    return updateObject( state, null );
+    return updateObject( state, action );
 };
 
 const fetchShipsByParamSuccess = ( state, action ) => {
