@@ -8,7 +8,7 @@ const Select = (props) => {
         return <option value={opt} key={opt}>{opt}</option>
     })
     return (
-        <select className={styles.Select} id={props.type}>
+        <select onChange={(e, id) => props.onSelect(e, props.type)} className={styles.Select} id={props.type}>
             <option value='null'>Select {props.type}</option>
             {optionsList}
         </select>

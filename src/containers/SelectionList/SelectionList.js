@@ -30,38 +30,44 @@ class SelectionList extends Component {
         styleValue: null,
         hullSizeValue: null,
     }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.styleValue !== this.state.styleValue ||
+            prevState.hullSizeValue !== this.state.hullSizeValue) {
+            this.fetchShips()
+        }
+    }
     componentDidMount() {
+        this.fetchShips()
+    }
+
+    fetchShips() {
         let param = 'ship/';
-        const { styleValue, hullSizeValue } = this.state
+        const { styleValue, hullSizeValue } = this.state;
         if (styleValue && hullSizeValue) {
-            param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;                        
-        } 
-        if (styleValue || hullSizeValue) {
-            param += '?' + hullSizeValue ? 'hull_size=' + hullSizeValue 
-                                            : '&style=' + styleValue;
+            param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;
+
+        } else if (styleValue || hullSizeValue) {
+
+            param += '?' + (hullSizeValue ? 'hull_size=' + hullSizeValue
+                : '&style=' + styleValue); 
         }
         this.props.onFetchShips(param);
-        // const query = 
-        // axios.get('ship/?style=SCYHULL')
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(err => console.log(err))
     }
 
     onSelect = (e, selectType) => {
         if (selectType === 'style') {
-            return this.setState({ styleValue: e.target.value})
+            this.setState({ styleValue: e.target.value })
         }
         if (selectType === 'hull size') {
-            return this.setState({ hullSizeValue: e.target.value})
+            this.setState({ hullSizeValue: e.target.value })
         }
     }
+
     render() {
         return (
             <div>
-                <Select type='style' options={styleOptions} />
-                <Select type='hull size' options={hullSizeOptions} />
+                <Select onSelect={this.onSelect} type='style' options={styleOptions} />
+                <Select onSelect={this.onSelect} type='hull size' options={hullSizeOptions} />
             </div>
         );
     }

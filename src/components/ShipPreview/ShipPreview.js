@@ -1,10 +1,11 @@
 import React from 'react';
+import { baseURL } from '../../utility/utility'
 
-const ShipPreview = ({preview, name}) => {
+const ShipPreview = ({ preview, name }) => {
     return (
         <div>
-            <b>{name}</b>
-            <img src={'/static/fitting' + preview} alt={name} />
+            <b>{ name }</b>
+            <img src={ baseURL + 'static/fitting' + preview } alt={ name } />
         </div> 
     );
 }

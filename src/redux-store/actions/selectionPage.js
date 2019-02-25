@@ -36,10 +36,8 @@ import axios from '../../axios-base';
 // };
 
 export const fetchShipsByParam = (param) => {
-    console.log('fetch')
     return dispatch => {
         dispatch(fetchShipsByParamStart());
-        console.log('fetchStart')
         axios.get(param)
             .then(res => {
                 const fetchedShips = res.data.results;
