@@ -1,39 +1,71 @@
-import actionTypes from './actionTypes'
-import axios from 'axios';
+import * as actionTypes from './actionTypes'
+import axios from '../../axios-base';
 
-export const fetchModsStart = () => {
-    return {
-        type: actionTypes.FETCH_MODS_START
+// export const fetchStylesStart = () => {
+//     return {
+//         type: actionTypes.FETCH_SHIP_STYLES_START
+//     }
+// }
+
+// export const fetchStylesFail = (error) => {
+//     return {
+//         type: actionTypes.FETCH_SHIP_STYLES_FAIL,
+//         error: error
+//     }
+// }
+
+// export const fetchStylesSuccess = () => {
+//     return {
+//         type: actionTypes.FETCH_SHIP_STYLES_SUCCESS
+//     }
+// }
+
+// export const fetchStyles = () => {
+//     return dispatch => {
+//         dispatch(fetchStylesStart());
+//         const queryParams = '';
+//         axios.get(queryParams)
+//             .then(res => {
+//                 const fetchedMods = [];
+//                 dispatch(fetchStylesSuccess(fetchedMods));
+//             })
+//             .catch(err => {
+//                 dispatch(fetchStylesFail(err))
+//             })
+//     }
+// };
+
+export const fetchShipsByParam = (param) => {
+    return dispatch => {
+        dispatch(fetchShipsByParamStart);
+        const queryParams = '';
+        axios.get(queryParams)
+            .then(res => {
+                const fetchedShips = res.data.results;
+                dispatch(fetchShipsByParamSuccess(fetchedShips));
+            })
+            .catch(err => {
+                dispatch(fetchShipsByParamFail(err))
+            })
     }
 }
 
-export const fetchModsFail = (error) => {
+export const fetchShipsByParamStart = () => {
     return {
-        type: actionTypes.FETCH_MODS_FAIL,
+        type: actionTypes.FETCH_SHIPS_BY_PARAM_START
+    }
+}
+
+export const fetchShipsByParamFail = (error) => {
+    return {
+        type: actionTypes.FETCH_SHIPS_BY_PARAM_FAIL,
         error: error
     }
 }
 
-export const fetchModsSuccess = () => {
+export const fetchShipsByParamSuccess = (fetchedShips) => {
     return {
-        type: actionTypes.FETCH_MODS_SUCCESS
+        type: actionTypes.FETCH_SHIPS_BY_PARAM_SUCCESS,
+        ships: fetchedShips
     }
 }
-
-export const fetchMods = () => {
-    return dispatch => {
-        dispatch(fetchModsStart());
-        const queryParams = '';
-        axios.get(queryParams)
-            .then(res => {
-                const fetchedMods = [];
-                dispatch(fetchModsSuccess(fetchedMods));
-            })
-            .catch(err => {
-                dispatch(fetchModsFail(err))
-            })
-    }
-};
-
-
-

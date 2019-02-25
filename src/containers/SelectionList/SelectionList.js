@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Select from '../../components/Select/Select';
-
 import axios from '../../axios-base'
+import { connect } from 'react-redux';
+import { fetchShipsByParam } from '../../redux-store/actions/selectionPage'
+
+import Select from '../../components/Select/Select';
 
 const styleOptions = ['ARKGNEISIS_MID',
     'ARKGNEISIS_HIGH',
@@ -24,24 +26,53 @@ const hullSizeOptions = ['CAPITAL_SHIP',
     'FRIGATE']
 
 class SelectionList extends Component {
-    state = {}
+    state = {
+        styleValue: null,
+        hullSizeValue: null,
+    }
     componentDidMount() {
+        let param = 'ship/';
+        const { styleValue, hullSizeValue } = this.state
+        if (styleValue && hullSizeValue) {
+            param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;                        
+        } 
+        if (styleValue || hullSizeValue) {
+            param += '?' + hullSizeValue ? 'hull_size=' + hullSizeValue 
+                                            : '&style=' + styleValue;
+        }
+        this.props.onFetchShips(param);
         // const query = 
-        axios.get('ship/?style=SCYHULL')
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => console.log(err))
+        // axios.get('ship/?style=SCYHULL')
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(err => console.log(err))
+    }
+
+    onSelect = (e, selectType) => {
+        if (selectType === 'style') {
+            return this.setState({ styleValue: e.target.value})
+        }
+        if (selectType === 'hull size') {
+            return this.setState({ hullSizeValue: e.target.value})
+        }
     }
     render() {
-
         return (
             <div>
-                <Select field='style' options={styleOptions} />
-                <Select field='hull size' options={hullSizeOptions} />
+                <Select type='style' options={styleOptions} />
+                <Select type='hull size' options={hullSizeOptions} />
             </div>
         );
     }
 }
 
-export default SelectionList;
+;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchShips: (param) => dispatch(fetchShipsByParam(param))
+    };
+};
+
+export default connect(null, mapDispatchToProps)(SelectionList);

@@ -8,8 +8,8 @@ const Select = (props) => {
         return <option value={opt} key={opt}>{opt}</option>
     })
     return (
-        <select className={styles.Select}>
-            <option value='null'>Select {props.field}</option>
+        <select className={styles.Select} id={props.type}>
+            <option value='null'>Select {props.type}</option>
             {optionsList}
         </select>
     );
