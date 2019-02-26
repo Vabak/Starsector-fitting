@@ -43,7 +43,8 @@ class SelectionList extends Component {
     fetchShips() {
         let param = 'ship/';
         const { styleValue, hullSizeValue } = this.state;
-        if (styleValue && hullSizeValue) {
+        if (!!(styleValue && hullSizeValue)) {
+            console.log(styleValue && hullSizeValue);
             param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;
 
         } else if (styleValue || hullSizeValue) {
