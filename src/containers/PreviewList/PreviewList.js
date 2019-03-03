@@ -1,12 +1,14 @@
 import React from 'react';
-import ShipPreview from '../../components/ShipPreview/ShipPreview';
+import ShipPreview from '../../components/ShipPreview';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const StyledPreviewList = styled.div`
-    flex-grow: 3;
+    height: 50%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 `
 
 
@@ -18,7 +20,7 @@ const PreviewList = (props) => {
                         key={ship.ship_name} />)
     return (
         <StyledPreviewList>
-        {List}
+            {List}
         </StyledPreviewList>
     );
 }

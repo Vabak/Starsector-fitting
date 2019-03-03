@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
-// import axios from '../../axios-base'
 import { connect } from 'react-redux';
 import * as actions from '../../stores/actions/selectionPage';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-import Select from '../../components/Select/Select';
+import Select from '../../components/Select';
 
-// const styleOptions = ['ARKGNEISIS_MID',
-//     'ARKGNEISIS_HIGH',
-//     'SHADOW_TECH',
-//     'MIDLINE',
-//     'SRD_MTF_TECH',
-//     'SCYHULL',
-//     'LOW_TECH',
-//     'HIGH_TECH',
-//     'DA_WANZER',
-//     'SRD_TECH',
-//     'KADUR_TECH',
-//     'SRD_RH_TECH',
-//     'SANGUINARY_TECH'];
-
-// const hullSizeOptions = ['CAPITAL_SHIP',
-//     'DESTROYER',
-//     'CRUISER',
-//     'FIGHTER',
-//     'FRIGATE']
+const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column; 
+    background-color: gray;
+    height: 100%;
+`;
 
 class SelectionList extends Component {
     state = {
@@ -67,10 +53,10 @@ class SelectionList extends Component {
 
     render() {
         return (
-            <div style={{display: 'flex', flexDirection: 'column'}}>
+            <StyledDiv>
                 <Select onSelect={this.onSelect} type='style' options={this.props.styleOptions} />
                 <Select onSelect={this.onSelect} type='hull size' options={this.props.hullSizeOptions} />
-            </div>
+            </StyledDiv>
         );
     }
 }
