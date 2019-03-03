@@ -7,6 +7,7 @@ const StyledPreviewList = styled.div`
     height: 50%;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
     align-items: center;
     justify-content: space-around;
 `

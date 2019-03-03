@@ -4,9 +4,16 @@ import styled from 'styled-components';
 
 
 const StyledPreview = styled.div`
-    width: auto;
+    box-sizing: border-box;
     flex-direction: column;
-    border: 2px solid lightgray
+    border: 2px solid lightgray;
+    &:hover {
+        background-color: lightgreen;
+        transform: scale(1.05); 
+    }
+    img {
+        max-width: 163px;
+    }
     b {
         display: block
     }
