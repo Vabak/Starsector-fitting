@@ -14,36 +14,22 @@ export const fetchFiltersFail = ( error ) => {
     }
 }
 
-
-
-
-export const fetchFiltersSuccess = ( filters ) => {
-    console.log('filters', filters)
-    console.log('filters.hullSizeOptions', filters.hullSizeOptions)
-    console.log('filters.styleOptions', filters.styleOptions)
-    
-    
-    
-
+export const fetchFiltersSuccess = ( name, options ) => {
     return {
         type: actionTypes.FETCH_FILTERS_SUCCESS,
-        hullSizeOptions: filters.hullSizeOptions,
-        styleOptions: filters.styleOptions,
+        options: options,
+        filterName: name
     }
 }
 
-export const fetchFilters = () => {
+export const fetchFilters = ( name, url ) => {
     return dispatch => {
         dispatch(fetchFiltersStart());
-        const fetchedFilters = {};
-        axios.get( 'filters/ships/style' )
+        axios.get( url )
             .then(res => {
-                fetchedFilters.styleOptions = res.data.values;
-                axios.get( 'filters/ships/hull_size' )
-                .then(res => {
-                    fetchedFilters.hullSizeOptions = Array.from(res.data.values)
-                })
-                dispatch(fetchFiltersSuccess( fetchedFilters ));
+                const options = res.data.values;
+                console.log('action opt', options)
+                dispatch(fetchFiltersSuccess( name, options ));
             })
             .catch(err => {
                 dispatch(fetchFiltersFail( err ))

@@ -27,7 +27,10 @@ import Select from '../../components/Select/Select';
 //     'FRIGATE']
 
 class SelectionList extends Component {
-
+    state = {
+        styleValue: '',
+        hullSizeValue: '',
+    }
     componentDidUpdate( prevProps, prevState ) {
         if (prevState.styleValue !== this.state.styleValue ||
             prevState.hullSizeValue !== this.state.hullSizeValue) {
@@ -35,16 +38,16 @@ class SelectionList extends Component {
         }
     }
     componentDidMount() {
-        this.props.onFetchFilters() 
+        this.props.onFetchFilters('styleOptions', 'filters/ships/style')
+        this.props.onFetchFilters('hullSizeOptions', 'filters/ships/hull_size')  
         this.fetchShips()
     }
 
     fetchShips() {
         let param = 'ships/';
-        const { styleValue, hullSizeValue } = this.props;
+        const { styleValue, hullSizeValue } = this.state;
 
         if (!!(styleValue && hullSizeValue)) {
-            console.log(styleValue && hullSizeValue);
             param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;
         } else if (styleValue || hullSizeValue) {
             param += '?' + (hullSizeValue ? 'hull_size=' + hullSizeValue
@@ -81,8 +84,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchShips: (param) => dispatch(actions.fetchShipsByParam(param)),
-        onFetchFilters: () => dispatch(actions.fetchFilters())
+        onFetchShips: ( param ) => dispatch(actions.fetchShipsByParam( param )),
+        onFetchFilters: ( name, url ) => dispatch(actions.fetchFilters( name, url ))
     };
 };
 

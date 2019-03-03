@@ -19,8 +19,7 @@ const fetchFiltersFail = ( state, action ) => {
 
 const fetchFiltersSuccess = ( state, action ) => {
     return updateObject( state, {
-        styleOptions: action.styleOptions,
-        hullSizeOptions: action.hullSizeOptions
+        [action.filterName]: action.options
     } );
 };
 
@@ -34,7 +33,7 @@ const fetchShipsByParamFail = ( state, action ) => {
 
 const fetchShipsByParamSuccess = ( state, action ) => {
     return updateObject( state, {
-        ships: action.fethedShips
+        ships: action.fetchedShips
     } );
 };
 
