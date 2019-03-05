@@ -63,8 +63,8 @@ class SelectionList extends Component {
 
 const mapStateToProps = state => {
     return {
-        styleOptions: state.styleOptions,
-        hullSizeOptions: state.hullSizeOptions,
+        styleOptions: state.selectionList.styleOptions,
+        hullSizeOptions: state.selectionList.hullSizeOptions,
     }
 }
 

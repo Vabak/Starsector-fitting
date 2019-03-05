@@ -4,19 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import reducer from './stores/reducers/reducer'
+import selectionList from './stores/reducers/selectionList';
+import previewList from './stores/reducers/previewList';
 
 
-// const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+const rootReducer = combineReducers({
+    selectionList: selectionList,
+    previewList: previewList
+});
 
-// const rootReducer = combineReducers({
-
-// });
-
-const store = createStore(reducer,
+const store = createStore(rootReducer,
     compose(
         applyMiddleware(thunk),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

@@ -11,31 +11,31 @@ const initialState = {
 
 const fetchFiltersStart = ( state, action ) => {
     return updateObject( state, action );
-};
+}
 
 const fetchFiltersFail = ( state, action ) => {
     return updateObject( state, action );
-};
+}
 
 const fetchFiltersSuccess = ( state, action ) => {
     return updateObject( state, {
         [action.filterName]: action.options
     } );
-};
+}
 
 const fetchShipsByParamStart = ( state, action ) => {
     return updateObject( state, action );
-};
+}
 
 const fetchShipsByParamFail = ( state, action ) => {
     return updateObject( state, action );
-};
+}
 
 const fetchShipsByParamSuccess = ( state, action ) => {
     return updateObject( state, {
         ships: action.fetchedShips
     } );
-};
+}
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {

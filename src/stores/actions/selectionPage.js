@@ -28,20 +28,20 @@ export const fetchFilters = ( name, url ) => {
         axios.get( url )
             .then(res => {
                 const options = res.data.values;
-                console.log('action opt', options)
                 dispatch(fetchFiltersSuccess( name, options ));
             })
             .catch(err => {
                 dispatch(fetchFiltersFail( err ))
             })
     }
-};
+}
 
 export const fetchShipsByParam = ( param ) => {
     return dispatch => {
         dispatch(fetchShipsByParamStart());
         axios.get( param )
             .then(res => {
+                console.log(res.data.results)
                 const fetchedShips = res.data.results;
                 dispatch(fetchShipsByParamSuccess( fetchedShips ));
             })

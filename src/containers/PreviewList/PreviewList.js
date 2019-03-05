@@ -18,7 +18,8 @@ const PreviewList = (props) => {
                     <ShipPreview 
                         name={ship.ship_name} 
                         preview={ship.sprite_name}
-                        key={ship.ship_name} />)
+                        key={ship.hull_id}
+                        id={ship.hull_id} />)
     return (
         <StyledPreviewList>
             {List}
@@ -28,7 +29,7 @@ const PreviewList = (props) => {
 
 const mapStateToProps = state => {
     return {
-        ships: state.ships
+        ships: state.selectionList.ships
     }
 }
 
