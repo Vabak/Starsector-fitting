@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../stores/actions/selectionPage';
+import * as actions from '../stores/actions/filters';
 import styled from 'styled-components';
 
-import Select from '../../components/Select';
+import Select from '../components/Select';
 
 const StyledDiv = styled.div`
     display: flex;
@@ -12,17 +12,19 @@ const StyledDiv = styled.div`
     height: 100%;
 `;
 
-class SelectionList extends Component {
+class Filters extends Component {
     state = {
         styleValue: '',
         hullSizeValue: '',
     }
+
     componentDidUpdate( prevProps, prevState ) {
         if ( prevState.styleValue !== this.state.styleValue ||
             prevState.hullSizeValue !== this.state.hullSizeValue ) {
             this.fetchShips()
         }
     }
+    
     componentDidMount() {
         this.props.onFetchFilters('styleOptions', 'filters/ships/style')
         this.props.onFetchFilters('hullSizeOptions', 'filters/ships/hull_size')  
@@ -63,8 +65,8 @@ class SelectionList extends Component {
 
 const mapStateToProps = state => {
     return {
-        styleOptions: state.selectionList.styleOptions,
-        hullSizeOptions: state.selectionList.hullSizeOptions,
+        styleOptions: state.filters.styleOptions,
+        hullSizeOptions: state.filters.hullSizeOptions,
     }
 }
 
@@ -75,4 +77,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectionList);
+export default connect( mapStateToProps, mapDispatchToProps )(Filters);

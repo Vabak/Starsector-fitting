@@ -1,29 +1,29 @@
 import React from 'react';
-import { baseURL } from '../utility/utility';
 import styled from 'styled-components';
+
+import ShipSprite from './UI/ShipSprite'
 
 
 const StyledPreview = styled.div`
     box-sizing: border-box;
     flex-direction: column;
-    border: 2px solid lightgray;
+    border: ${props => ( props.selectedShip === props.id ) ? '2px solid red'  : '2px solid lightgray'};
     &:hover {
         background-color: lightgreen;
         transform: scale(1.05); 
-    }
-    img {
-        max-width: 163px;
     }
     b {
         display: block
     }
 `;
 
-const ShipPreview = ({ preview, name, selectShip, id }) => {
+const ShipPreview = ({ preview, name, selectShip, id, selectedShip }) => {
     return (
-        <StyledPreview onClick={() => selectShip(id)}>
+        <StyledPreview onClick={() => {selectShip(id)}} selectedShip={selectedShip} id={id} >
             <b>{ name }</b>
-            <img src={ baseURL + 'static/fitting' + preview } alt={ name } />
+            <ShipSprite 
+                preview={preview}
+                name={name} />
         </StyledPreview> 
     );
 }

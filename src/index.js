@@ -7,13 +7,13 @@ import { Provider } from 'react-redux'
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import selectionList from './stores/reducers/selectionList';
-import previewList from './stores/reducers/previewList';
+import filters from './stores/reducers/filters';
+import shipSelection from './stores/reducers/shipSelection';
 
 
 const rootReducer = combineReducers({
-    selectionList: selectionList,
-    previewList: previewList
+    filters: filters,
+    shipSelection: shipSelection
 });
 
 const store = createStore(rootReducer,
