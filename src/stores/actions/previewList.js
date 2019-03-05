@@ -8,8 +8,8 @@ export const selectShip = ( shipId ) => {
     }
 }
 
-// fetch the single ship is don't need, cause we already had data from fetchShips,
-// maybe use it later. 
+// fetch the single ship is redundantly, cause we already had this data from fetchShips,
+// maybe i'll use it later. 
 
 // export const fetchSelectedShip = ( shipId ) => {
 //     return dispatch => {

@@ -19,9 +19,9 @@ const StyledPreview = styled.div`
     }
 `;
 
-const ShipPreview = ({ preview, name }) => {
+const ShipPreview = ({ preview, name, selectShip, id }) => {
     return (
-        <StyledPreview>
+        <StyledPreview onClick={() => selectShip(id)}>
             <b>{ name }</b>
             <img src={ baseURL + 'static/fitting' + preview } alt={ name } />
         </StyledPreview> 

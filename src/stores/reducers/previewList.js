@@ -14,7 +14,7 @@ export const selectShip = ( state, action ) => {
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
-        case actionTypes.SELECT_SHIP: return selectShip( state, action)
+        case actionTypes.SELECT_SHIP: return selectShip( state, action )
         default: return state;
     }
 }

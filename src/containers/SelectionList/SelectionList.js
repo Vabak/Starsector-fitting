@@ -18,8 +18,8 @@ class SelectionList extends Component {
         hullSizeValue: '',
     }
     componentDidUpdate( prevProps, prevState ) {
-        if (prevState.styleValue !== this.state.styleValue ||
-            prevState.hullSizeValue !== this.state.hullSizeValue) {
+        if ( prevState.styleValue !== this.state.styleValue ||
+            prevState.hullSizeValue !== this.state.hullSizeValue ) {
             this.fetchShips()
         }
     }
@@ -33,20 +33,20 @@ class SelectionList extends Component {
         let param = 'ships/';
         const { styleValue, hullSizeValue } = this.state;
 
-        if (!!(styleValue && hullSizeValue)) {
+        if ( !!( styleValue && hullSizeValue )) {
             param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;
         } else if (styleValue || hullSizeValue) {
-            param += '?' + (hullSizeValue ? 'hull_size=' + hullSizeValue
-                                            : 'style=' + styleValue); 
+            param += '?' + ( hullSizeValue ? 'hull_size=' + hullSizeValue
+                                           : 'style=' + styleValue ); 
         }
-        this.props.onFetchShips(param);
+        this.props.onFetchShips( param );
     }
 
-    onSelect = (e, selectType) => {
-        if (selectType === 'style') {
+    onSelect = ( e, selectType ) => {
+        if ( selectType === 'style' ) {
             this.setState({ styleValue: e.target.value })
         }
-        if (selectType === 'hull size') {
+        if ( selectType === 'hull size' ) {
             this.setState({ hullSizeValue: e.target.value })
         }
     }
