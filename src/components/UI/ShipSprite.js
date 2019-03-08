@@ -4,6 +4,7 @@ import { baseURL } from '../../utility/utility';
 
 const StyledImg = styled.img`
     max-width: 163px;
+    object-fit: contain;
 `;
 
 const ShipSprite = ( props ) => {
