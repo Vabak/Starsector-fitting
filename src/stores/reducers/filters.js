@@ -19,7 +19,8 @@ const fetchFiltersFail = ( state, action ) => {
 
 const fetchFiltersSuccess = ( state, action ) => {
     return updateObject( state, {
-        [action.filterName]: action.options
+        [action.filterName]: action.options,
+        selectedShip: null
     } );
 }
 

@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes'
 import axios from '../../axios-base';
+import { selectShip } from './shipSelection';
 
 export const fetchFiltersStart = () => {
     return {
@@ -43,10 +44,11 @@ export const fetchShipsByParam = ( param ) => {
             .then(res => {
                 console.log(res.data.results)
                 const fetchedShips = res.data.results;
-                dispatch(fetchShipsByParamSuccess( fetchedShips ));
+                dispatch( selectShip( null ));
+                dispatch( fetchShipsByParamSuccess( fetchedShips ));
             })
             .catch(err => {
-                dispatch(fetchShipsByParamFail( err ))
+                dispatch( fetchShipsByParamFail( err ))
             })
     }
 }
