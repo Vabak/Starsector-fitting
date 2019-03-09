@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ShipSprite from '../components/UI/ShipSprite';
 import ShipPreview from '../components/ShipPreview';
+import ShipDataTable from '../components/ShipDataTable';
 
 const StyledDescription = styled.div`
     height: 50%;
@@ -22,6 +22,7 @@ const ShipDescription = ( props ) => {
                     name={ ship.ship_name }
                     preview={ ship.sprite_name } />
                 <p>{ ship.description }</p>
+                <ShipDataTable data={ship} />
             </StyledDescription>
             :
             null
