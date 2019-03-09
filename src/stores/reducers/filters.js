@@ -38,6 +38,13 @@ const fetchShipsByParamSuccess = ( state, action ) => {
     } );
 }
 
+const setPagination = ( state, action ) => {
+    return updateObject( state, {
+        previous: action.previousPage,
+        next: action.nextPage
+    })
+}
+
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case actionTypes.FETCH_SHIPS_BY_PARAM_START: return fetchShipsByParamStart( state, action );
@@ -46,6 +53,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.FETCH_FILTERS_START: return fetchFiltersStart( state, action );
         case actionTypes.FETCH_FILTERS_FAIL: return fetchFiltersFail( state, action );
         case actionTypes.FETCH_FILTERS_SUCCESS: return fetchFiltersSuccess( state, action );
+        case actionTypes.PAGINTATION_HANDLER: return setPagination( state, action );
         default: return state;
     }
 }

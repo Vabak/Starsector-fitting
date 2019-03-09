@@ -42,7 +42,8 @@ export const fetchShipsByParam = ( param ) => {
         dispatch(fetchShipsByParamStart());
         axios.get( param )
             .then(res => {
-                console.log(res.data.results)
+                console.log(res.data)
+                dispatch (cutPagesLinks(res.data));
                 const fetchedShips = res.data.results;
                 dispatch( selectShip( null ));
                 dispatch( fetchShipsByParamSuccess( fetchedShips ));
@@ -50,6 +51,22 @@ export const fetchShipsByParam = ( param ) => {
             .catch(err => {
                 dispatch( fetchShipsByParamFail( err ))
             })
+    }
+}
+
+
+const cutPagesLinks = ( data ) => {
+    return dispatch => {
+        let previous = data.previous;
+        let next = data.next;
+        if ( previous ) {
+            previous = previous.slice( previous.lastIndexOf( '?' ) ) 
+        }
+        if ( next ) {
+            next = next.slice( next.lastIndexOf( '?' ) ) 
+        } 
+
+        dispatch ( pagintationHandler( previous, next ))   
     }
 }
 
@@ -70,5 +87,13 @@ export const fetchShipsByParamSuccess = ( fetchedShips ) => {
     return {
         type: actionTypes.FETCH_SHIPS_BY_PARAM_SUCCESS,
         ships: fetchedShips
+    }
+}
+
+export const pagintationHandler = ( previous, next ) => {
+    return {
+        type: actionTypes.PAGINTATION_HANDLER,
+        previousPage: previous,
+        nextPage: next
     }
 }

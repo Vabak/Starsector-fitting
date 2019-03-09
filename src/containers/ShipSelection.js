@@ -13,7 +13,10 @@ const Container = styled.div`
 `;
 
 class ShipSelection extends Component {
-    render() { 
+    paginationHandler( param ) {
+        this.props.onFetchShips( param )
+    }
+    render() {  
         return (
             <Container>
                 <Previews
@@ -28,6 +31,7 @@ class ShipSelection extends Component {
     }
 }
 
+
 const mapStateToProps = state => {
     return {
         ships: state.filters.ships,
@@ -37,7 +41,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSelectShip: ( shipId ) => dispatch(actions.selectShip( shipId ))
+        onSelectShip: ( shipId ) => dispatch(actions.selectShip( shipId )),
+        onFetchShips: ( param ) => dispatch(actions.fetchShipsByParam( param )),
     }
 }
 

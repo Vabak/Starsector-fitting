@@ -1,6 +1,7 @@
 import React from 'react';
 import ShipPreview from '../components/ShipPreview';
 import styled from 'styled-components';
+import Button from '../components/UI/Button';
 
 const StyledPreviewList = styled.div`
     height: 50%;
@@ -21,9 +22,15 @@ const PreviewList = ( props ) => {
                         selectShip={ ( id ) => ( props.selectedShip === id ) ? null : props.selectShip( id ) }
                         selectedShip={props.selectedShip} />)
     return (
+        <>
         <StyledPreviewList>
             { List}
         </StyledPreviewList>
+        <div>
+            <Button value='previous' />
+            <Button value='next' />
+        </div>
+        </>
     );
 }
 
