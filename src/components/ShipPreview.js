@@ -7,6 +7,11 @@ import ShipSprite from './UI/ShipSprite'
 const StyledPreview = styled.div`
     box-sizing: border-box;
     flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    width: 10%;
+    display: flex;
     &.disabled {
         border: none;
         pointer-events: none;

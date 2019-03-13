@@ -8,7 +8,7 @@ const StyledPreviewList = styled.div`
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
 `
 
