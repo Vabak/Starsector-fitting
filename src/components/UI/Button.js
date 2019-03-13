@@ -3,10 +3,15 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
     border: ${props => props.page ? '2px solid black' : 'none' } ;
-    border-radius: 5px;
+    width: 80px;
+    height: 20px;
+    margin: 10px;
     background-color: lightblue;
     &:active {
 
+    }
+    &:hover {
+        background-color: #3EA9E5;
     }
 `;
 

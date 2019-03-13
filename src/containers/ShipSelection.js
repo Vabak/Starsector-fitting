@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     flex-grow: 3;
 `;
 
@@ -31,7 +31,7 @@ class ShipSelection extends Component {
 
                 <ShipDescription
                     ships={ this.props.ships }
-                    selectedShip={ this.props.selectedShip } />                 
+                    selectedShip={ this.props.selectedShip } />
             </Container>
         );
     }

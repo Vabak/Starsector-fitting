@@ -8,7 +8,7 @@ const StyledSelect = styled.select`
     padding: 4px 3px 3px 5px;
     margin: 0;
     font: inherit;
-    outline:none; 
+    outline:none;
     line-height: 1.2;
     background: #f8f8f8;
 `

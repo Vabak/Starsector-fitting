@@ -5,8 +5,15 @@ import ShipSprite from './UI/ShipSprite'
 
 
 const StyledPreview = styled.div`
+    margin: 10px;
+    height: 200px;
+    width: 150px;
     box-sizing: border-box;
+    display: flex;
     flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     &.disabled {
         border: none;
         pointer-events: none;
