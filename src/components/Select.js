@@ -7,7 +7,7 @@ const StyledSelect = styled.select`
     border: 2px solid #bbb;
     padding: 4px 3px 3px 5px;
     margin: 0;
-    font: inherit;
+    font-style: inherit;
     outline:none; 
     line-height: 1.2;
     background: #f8f8f8;

@@ -8,6 +8,10 @@ const StyledDescription = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    p {
+        display: block;
+        width: 30%;
+    }
 `;
 
 const ShipDescription = ( props ) => {
