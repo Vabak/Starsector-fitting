@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { baseURL } from '../../utility/utility';
 
 const StyledImg = styled.img`
-    max-width: 163px;
+    max-height: 175px;
+    max-width: 150px;
     object-fit: contain;
     display: block;
 `;
