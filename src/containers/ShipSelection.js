@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from '../stores/actions/shipSelection'
+import * as actions from '../stores/actions/index'
 import Previews from './Previews';
 import ShipDescription from './ShipDescription';
 import styled from 'styled-components';
@@ -13,19 +13,25 @@ const Container = styled.div`
 `;
 
 class ShipSelection extends Component {
-    paginationHandler( param ) {
+    paginationHandler = ( e, page ) => {
+        if (!page) return;
+        const param = '/ships' + page;
         this.props.onFetchShips( param )
     }
     render() {  
         return (
             <Container>
                 <Previews
-                    ships={this.props.ships}
-                    selectShip={(id) => this.props.onSelectShip(id)}
-                    selectedShip={this.props.selectedShip} />
+                    ships={ this.props.ships }
+                    selectShip={( id ) => this.props.onSelectShip( id )}
+                    selectedShip={ this.props.selectedShip }
+                    changePage={ this.paginationHandler }
+                    nextPage={ this.props.nextPage }
+                    previousPage={ this.props.previousPage } />
+
                 <ShipDescription
-                    ships={this.props.ships}
-                    selectedShip={this.props.selectedShip} />               
+                    ships={ this.props.ships }
+                    selectedShip={ this.props.selectedShip } />                 
             </Container>
         );
     }
@@ -35,7 +41,9 @@ class ShipSelection extends Component {
 const mapStateToProps = state => {
     return {
         ships: state.filters.ships,
-        selectedShip: state.shipSelection.selectedShip
+        selectedShip: state.shipSelection.selectedShip,
+        nextPage: state.filters.next,
+        previousPage: state.filters.previous
     }
 }
 

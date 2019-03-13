@@ -60,10 +60,10 @@ const cutPagesLinks = ( data ) => {
         let previous = data.previous;
         let next = data.next;
         if ( previous ) {
-            previous = previous.slice( previous.lastIndexOf( '?' ) ) 
+            previous = previous.slice( previous.lastIndexOf( '/' ) ) 
         }
         if ( next ) {
-            next = next.slice( next.lastIndexOf( '?' ) ) 
+            next = next.slice( next.lastIndexOf( '/' ) ) 
         } 
 
         dispatch ( pagintationHandler( previous, next ))   

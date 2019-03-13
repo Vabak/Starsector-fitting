@@ -20,15 +20,19 @@ const PreviewList = ( props ) => {
                         key={ ship.hull_id }
                         id={ ship.hull_id }
                         selectShip={ ( id ) => ( props.selectedShip === id ) ? null : props.selectShip( id ) }
-                        selectedShip={props.selectedShip} />)
+                        selectedShip={ props.selectedShip } />)
     return (
         <>
         <StyledPreviewList>
-            { List}
+            { List }
         </StyledPreviewList>
         <div>
-            <Button value='previous' />
-            <Button value='next' />
+            <Button value='previous'
+                page={ props.previousPage }
+                changePage={ props.changePage } />
+            <Button value='next'
+                page={ props.nextPage }
+                changePage={ props.changePage } />
         </div>
         </>
     );
