@@ -7,22 +7,6 @@ const StyledTable = styled.table`
 
 const DataTable = ( props ) => {
     const data = props.data || {};
-<<<<<<< HEAD
-    return (
-        <table>
-            <tbody>
-            { Object.keys(data).map(key => {
-                if ( ( typeof data[key] !== 'string' )  &&
-                     ( typeof data[key] !== 'number' )) { return null }
-
-                return (
-                    <tr key={ key }>
-                        <td>{ key }</td>
-                        <td>{ data[key] }</td>
-                    </tr>
-                )
-            })}
-=======
     return ( 
         <StyledTable>
             <tbody>
@@ -102,7 +86,6 @@ const DataTable = ( props ) => {
                     <td>Shield upkeep</td>
                     <td>{data.shield_upkeep}</td>
                 </tr>
->>>>>>> 1a1b0ba3fad48ce3b052f852d240091262362eb5
             </tbody>
         </StyledTable>
     );
