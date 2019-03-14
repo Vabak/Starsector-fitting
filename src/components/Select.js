@@ -5,10 +5,11 @@ import styled from 'styled-components';
 const StyledSelect = styled.select`
     display: inline-block;
     border: 2px solid #bbb;
+    margin: 10px 5px;
     padding: 4px 3px 3px 5px;
     margin: 0;
     font-style: inherit;
-    outline:none; 
+    outline:none;
     line-height: 1.2;
     background: #f8f8f8;
 `

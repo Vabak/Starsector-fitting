@@ -6,6 +6,7 @@ const StyledButton = styled.button`
     width: 80px;
     height: 20px;
     margin: 10px;
+    font-family: 'Orbitron', sans-serif;
     background-color: lightblue;
     &:active {
 

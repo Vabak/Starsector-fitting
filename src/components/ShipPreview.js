@@ -14,17 +14,28 @@ const StyledPreview = styled.div`
     align-content: center;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
     &.disabled {
-        border: none;
-        pointer-events: none;
+    border: none;
+    pointer-events: none;
     }
     border: ${props => ( props.selectedShip === props.id ) ? '2px solid red'  : '2px solid lightgray'};
     &:hover {
-        background-color: lightgreen;
-        transform: scale(1.05); 
+        transform: scale(1.05);
+        background: repeating-linear-gradient(
+            45deg,
+            #131111,
+            #131111 20px,
+            #A7AC0C 20px,
+            #A7AC0C 40px
+        );
+        color: white;
+        text-shadow: black 1px 1px 0, black -1px -1px 0,
+                     black -1px 1px 0, black 1px -1px 0;
     }
     b {
-        display: block;
+    display: block;
     }
 `;
 
