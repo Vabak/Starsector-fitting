@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
     display: flex;
     flex-direction: column; 
     background-color: gray;
-    height: 100%;
+    min-height: 100%;
 `;
 
 class Filters extends Component {
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )(Filters);
+export default connect( mapStateToProps, mapDispatchToProps )( Filters );

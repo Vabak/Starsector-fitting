@@ -4,7 +4,8 @@ import ShipPreview from '../components/ShipPreview';
 import ShipDataTable from '../components/ShipDataTable';
 
 const StyledDescription = styled.div`
-    /* height: 50%; */
+    height: auto;
+    margin: 20px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
