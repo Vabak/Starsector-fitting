@@ -7,7 +7,7 @@ import ShipDescription from './ShipDescription';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    min-height: 100%
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 3;
