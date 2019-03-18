@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-    border: ${props => props.page ? '2px solid black' : 'none' } ;
+    border: 2px solid black;
+    visibility: ${props => props.page ? 'visible' : 'hidden' } ;
     width: 80px;
     height: 20px;
     margin: 10px;
@@ -12,7 +13,7 @@ const StyledButton = styled.button`
 
     }
     &:hover {
-        background-color: #3EA9E5;
+    background-color: #3EA9E5;
     }
 `;
 
