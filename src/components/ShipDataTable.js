@@ -3,8 +3,17 @@ import styled from 'styled-components';
 
 const StyledTable = styled.table`
     width: 40%;
-    colgroup {
-        border: 1px solid black;
+    thead {
+        background-color: #9E9E9E;
+    };
+    th {
+    };
+    tbody > td:nth-child(2n-1) > tr {
+        text-align: left;
+    };
+    tbody > td:nth-child(2n) > tr {
+        text-align: right;
+    };
     }
 `;
 

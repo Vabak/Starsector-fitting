@@ -11,6 +11,7 @@ const StyledDiv = styled.div`
     background-color: gray;
     min-height: 100%;
     padding: 30px 5px;
+    width: 180px;
 `;
 
 class Filters extends Component {
