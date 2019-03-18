@@ -6,19 +6,18 @@ import ShipSprite from './UI/ShipSprite'
 
 const StyledPreview = styled.div`
     margin: 10px;
-    height: 200px;
+    padding: 5px 0;
+    height: 210px;
     width: 150px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
     font-family: 'Orbitron', sans-serif;
     &.disabled {
-    border: none;
-    pointer-events: none;
+        border: none;
+        pointer-events: none;
     }
     border: ${props => ( props.selectedShip === props.id ) ? '2px solid red'  : '2px solid lightgray'};
     &:hover {
@@ -33,9 +32,15 @@ const StyledPreview = styled.div`
         color: white;
         text-shadow: black 1px 1px 0, black -1px -1px 0,
                      black -1px 1px 0, black 1px -1px 0;
-    }
+    };
     b {
-    display: block;
+        display: block;
+    };
+    div {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 `;
 
@@ -45,9 +50,11 @@ const ShipPreview = ({ preview, name, selectShip, id, selectedShip, className })
             className={className}
             onClick={() => {selectShip(id)}} selectedShip={selectedShip} id={id} >
             <b>{ name }</b>
+            <div>
             <ShipSprite 
                 preview={preview}
                 name={name} />
+            </div>
         </StyledPreview> 
     );
 }

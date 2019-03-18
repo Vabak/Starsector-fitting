@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
     flex-direction: column; 
     background-color: gray;
     min-height: 100%;
+    padding: 30px 5px;
 `;
 
 class Filters extends Component {
