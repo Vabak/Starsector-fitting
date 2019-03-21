@@ -3,12 +3,26 @@ import ShipSprite from '../components/UI/ShipSprite';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-
+const FittingContainer = styled.div`
+        
+`;
 
 class ShipFitting extends Component {
     state = {}
+
+    
+    getSlotsCoordinates = ( slot ) => {
+        const ship = Object.assign({}, this.props.selectedShip);
+        const center = ship.center;
+        const [slotX, slotY] = locations;
+        const [centerX, centerY] = center;
+        const locations = {};
+        locations.left = centerX + slotX;
+        locations.top = centerY + slotY;
+    } 
+
     render() { 
-        const ship = Object.assign({}, this.props.selectedShip)
+        const ship = Object.assign({}, this.props.selectedShip);
         return (
             ( this.props.selectedShip ) ? 
             <div> 
