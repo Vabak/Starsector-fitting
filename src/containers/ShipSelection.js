@@ -15,6 +15,13 @@ const Container = styled.div`
 `;
 
 class ShipSelection extends Component {
+    selectShip = ( id ) => {
+        const ship = this.props.ships.find( ship => {
+            return ship.hull_id === id
+        })
+        this.props.onSelectShip( ship );
+    }
+
     paginationHandler = ( e, page ) => {
         if (!page) return;
         const param = '/ships' + page;
@@ -25,15 +32,15 @@ class ShipSelection extends Component {
             <Container>
                 <Previews
                     ships={ this.props.ships }
-                    selectShip={( id ) => this.props.onSelectShip( id )}
+                    selectShip={( id ) => this.selectShip( id )}
                     selectedShip={ this.props.selectedShip }
                     changePage={ this.paginationHandler }
                     nextPage={ this.props.nextPage }
                     previousPage={ this.props.previousPage } />
-
-                <ShipDescription
+                {( this.props.selectedShip ) ? <ShipDescription
                     ships={ this.props.ships }
-                    selectedShip={ this.props.selectedShip } />
+                    selectedShip={ this.props.selectedShip } /> 
+                    : null}
             </Container>
         );
     }

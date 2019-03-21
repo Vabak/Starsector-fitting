@@ -12,7 +12,6 @@ const StyledTable = styled.table`
     tbody > td:nth-child(2n) > tr {
         text-align: right;
     };
-    }
 `;
 
 const DataTable = (props) => {

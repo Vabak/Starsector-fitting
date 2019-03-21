@@ -1,10 +1,10 @@
 import * as actionTypes from './actionTypes';
 // import axios from 'axios';
 
-export const selectShip = ( shipId ) => {
+export const selectShip = ( ship ) => {
     return {
         type: actionTypes.SELECT_SHIP,
-        shipId: shipId
+        ship: ship
     }
 }
 

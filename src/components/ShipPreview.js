@@ -44,7 +44,7 @@ const StyledPreview = styled.div`
     }
 `;
 
-const ShipPreview = ({ preview, name, selectShip, id, selectedShip, className }) => {
+const ShipPreview = ({unsized, preview, name, selectShip, id, selectedShip, className }) => {
     return (
         <StyledPreview 
             className={className}
@@ -52,6 +52,7 @@ const ShipPreview = ({ preview, name, selectShip, id, selectedShip, className })
             <b>{ name }</b>
             <div>
             <ShipSprite 
+                unsized={unsized}
                 preview={preview}
                 name={name} />
             </div>

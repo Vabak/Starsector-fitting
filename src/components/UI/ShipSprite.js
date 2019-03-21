@@ -11,7 +11,7 @@ const StyledImg = styled.img`
 
 const ShipSprite = ( props ) => {
     return (
-        <StyledImg src={ baseURL + 'static/fitting' + props.preview } alt={ props.name } />
+        <StyledImg src={ baseURL + 'static/fitting' + props.preview } alt={ props.name } unsized={ props.unsized } />
     );
 }
  
