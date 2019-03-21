@@ -8,7 +8,7 @@ const initialState = {
 
 export const selectShip = ( state, action ) => {
     return updateObject( state, {
-        selectedShip: action.shipId
+        selectedShip: action.ship
     })
 }
 
