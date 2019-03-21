@@ -15,6 +15,7 @@ const Container = styled.div`
 `;
 
 class ShipSelection extends Component {
+
     paginationHandler = ( e, page ) => {
         if (!page) return;
         const param = '/ships' + page;
@@ -30,10 +31,10 @@ class ShipSelection extends Component {
                     changePage={ this.paginationHandler }
                     nextPage={ this.props.nextPage }
                     previousPage={ this.props.previousPage } />
-
-                <ShipDescription
+                {( this.props.selectedShip ) ? <ShipDescription
                     ships={ this.props.ships }
-                    selectedShip={ this.props.selectedShip } />
+                    selectedShip={ this.props.selectedShip } /> 
+                    : null}
             </Container>
         );
     }
