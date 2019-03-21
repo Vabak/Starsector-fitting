@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ShipFitting from '../ShipFitting'
 
 const StyledPage = styled.div`
     display: flex;
@@ -9,8 +10,8 @@ const StyledPage = styled.div`
 const FittingPage = ( props ) => {
     return (
         <StyledPage>
-            <div>Filters</div>
-            <div>Ship</div>
+            <div>Weapons</div>
+            <ShipFitting />
             <div>Paremeters</div> 
         </StyledPage>
     );

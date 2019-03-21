@@ -34,8 +34,6 @@ class ShipDescription extends Component {
                 <StyledDescription ref={this.scrollRef}>
                     <ShipSprite 
                         unsized
-                        onClick={null}
-                        className="disabled"
                         name={ ship.ship_name }
                         preview={ ship.sprite_name } />
                     <p>{ ship.description }</p>
