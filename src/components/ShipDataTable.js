@@ -6,8 +6,6 @@ const StyledTable = styled.table`
     thead {
         background-color: #9E9E9E;
     };
-    th {
-    };
     tbody > td:nth-child(2n-1) > tr {
         text-align: left;
     };
@@ -42,6 +40,7 @@ const DataTable = (props) => {
                     <tr>Cargo</tr>
                     <tr>Min/Max crew</tr>
                     <tr>Mass</tr>
+                    <tr>Max burn</tr>
                     <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
                 </td>
@@ -52,6 +51,7 @@ const DataTable = (props) => {
                     <tr>{data.cargo}</tr>
                     <tr>{data.min_crew}/{data.max_crew}</tr>
                     <tr>{data.mass}</tr>
+                    <tr>{data.max_burn}</tr>
                     <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
                 </td>
@@ -65,6 +65,7 @@ const DataTable = (props) => {
                     <tr>Shield efficiency</tr>
                     <tr>Shield arc</tr>
                     <tr>Shield upkeep</tr>
+                    <tr>Fighter bays</tr>
                 </td>
                 <td>
                     <tr>{data.hitpoints}</tr>
@@ -75,6 +76,7 @@ const DataTable = (props) => {
                     <tr>{data.shield_efficiency}</tr>
                     <tr>{data.shield_arc}</tr>
                     <tr>{data.shield_upkeep}</tr>
+                    <tr>{data.fighter_bays}</tr>
                 </td>
                 {/*Movement*/}
                 <td>
@@ -86,12 +88,14 @@ const DataTable = (props) => {
                     <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
+                    <tr>&nbsp;</tr>
                 </td>
                 <td>
                     <tr>{data.max_speed}</tr>
                     <tr>{data.acceleration}</tr>
                     <tr>{data.deceleration}</tr>
                     <tr>{data.max_turn_rate}</tr>
+                    <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
                     <tr>&nbsp;</tr>
