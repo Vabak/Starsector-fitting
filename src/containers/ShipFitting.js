@@ -22,8 +22,8 @@ class ShipFitting extends Component {
         // Something wrong with coordinates
         console.log('center',center)
         const locations = {};
-        locations.bottom = centerY + slotY;
-        locations.left = centerX + slotX;
+        locations.bottom = centerX + slotY - 5;
+        locations.left = centerY - slotX - 5;
         console.log('result', locations)
         return locations;
     } 
@@ -34,7 +34,7 @@ class ShipFitting extends Component {
         if ( this.props.selectedShip ) {
             slots = Object.keys(ship.weapon_slots)
             .map( slot => {
-            return <Slot key={ slot } locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )} />
+            return <Slot key={ slot } type={ ship.weapon_slots[slot]['type'] } locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )} />
         })  
         }
         return (
