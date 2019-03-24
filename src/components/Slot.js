@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TempSlot = styled.div`
+const StyledSlot = styled.div`
     width: 5px;
     height: 5px;
-    border: solid 2px white;
+    border: solid 2px black;
     border-radius: 2px;
+    z-index: 99;
     position: absolute;
-    left: ${props => props.locations.left};
-    top: ${props => props.locations.top};
+    left: ${props => props.locations.left + 'px'};
+    bottom: ${props => props.locations.bottom + 'px'};
 `;
 
 const Slot = ( props ) => {
     return (
-        <TempSlot locations={ props.locations } />
+        <StyledSlot locations={ props.locations } />
     );
 }
  
