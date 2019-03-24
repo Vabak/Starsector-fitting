@@ -33,9 +33,10 @@ class ShipFitting extends Component {
         let slots = null;
         if ( this.props.selectedShip ) {
             slots = Object.keys(ship.weapon_slots)
+            .filter( slot => ship.weapon_slots[slot]['type'] != 'DECORATIVE' )
             .map( slot => {
-            return <Slot key={ slot } type={ ship.weapon_slots[slot]['type'] } locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )} />
-        })  
+                return <Slot key={ slot } type={ ship.weapon_slots[slot]['type'] } locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )} />
+            })  
         }
         return (
             ( this.props.selectedShip ) ? 
