@@ -16,15 +16,10 @@ class ShipFitting extends Component {
         const ship = Object.assign({}, this.props.selectedShip);
         const center = ship.center;
         const [slotX, slotY] = slot.locations;
-        console.log('locations', slot.locations)
-        let [centerX, centerY] = center;
-
-        // Something wrong with coordinates
-        console.log('center',center)
+        const [centerX, centerY] = center;
         const locations = {};
         locations.left = centerX - slotY - 5;
         locations.bottom = centerY + slotX - 5;
-        console.log('result', locations)
         return locations;
     } 
 

@@ -13,7 +13,7 @@ const StyledSlot = styled.div`
 `;
 
 const Slot = ( props ) => {
-    var color: 'white';
+    let color = 'white';
     const slotType = props.type;
     switch(slotType) {
         case 'ENERGY':
