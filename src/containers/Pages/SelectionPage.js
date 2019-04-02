@@ -8,7 +8,7 @@ import ShipSelection from '../ShipSelection'
 class SelectionPage extends Component {
     render() { 
         return (
-            <div style={{ display: 'flex', minHeight: '100%' }}>
+            <div style={{ display: 'flex', minHeight: '300px' }}>
                 <Filters />
                 <ShipSelection />
             </div>

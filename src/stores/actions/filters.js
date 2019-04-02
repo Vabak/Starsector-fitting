@@ -43,7 +43,7 @@ export const fetchShipsByParam = ( param ) => {
         axios.get( param )
             .then(res => {
                 console.log(res.data)
-                dispatch (cutPagesLinks(res.data));
+                dispatch ( cutPagesLinks(res.data) );
                 const fetchedShips = res.data.results;
                 dispatch( selectShip( null ));
                 dispatch( fetchShipsByParamSuccess( fetchedShips ));
@@ -53,7 +53,6 @@ export const fetchShipsByParam = ( param ) => {
             })
     }
 }
-
 
 const cutPagesLinks = ( data ) => {
     return dispatch => {
@@ -66,7 +65,7 @@ const cutPagesLinks = ( data ) => {
             next = next.slice( next.lastIndexOf( '/' ) ) 
         } 
 
-        dispatch ( pagintationHandler( previous, next ))   
+        dispatch ( pagintationHandler( previous, next ) )   
     }
 }
 

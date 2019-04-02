@@ -34,7 +34,7 @@ class ShipFitting extends Component {
             })  
         }
         return (
-            ( this.props.selectedShip ) ? 
+            this.props.selectedShip ? 
             <div> 
                 <FittingContainer>
                     <ShipSprite
