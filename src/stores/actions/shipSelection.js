@@ -8,7 +8,7 @@ export const selectShip = ( ship ) => {
     }
 }
 
-// fetch the single ship is redundantly, cause we already had this data from fetchShips,
+// fetch the single ship is redundantly, cause we already got this data from fetchShips,
 // maybe i'll use it later. 
 
 // export const fetchSelectedShip = ( shipId ) => {

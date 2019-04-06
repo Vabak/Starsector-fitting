@@ -10,7 +10,9 @@ const FittingContainer = styled.div`
 `;
 
 class ShipFitting extends Component {
-    state = {}
+    state = {
+        selectedSlot: null        
+    }
 
     getSlotCoordinates = ( slot ) => {
         const ship = Object.assign({}, this.props.selectedShip);
