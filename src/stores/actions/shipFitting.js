@@ -1,3 +1,6 @@
+import * as actionTypes from './actionTypes';
+import axios from '../../axios-base';
+
 export const fetchWeaponsByParamStart = () => {
     return {
         type: actionTypes.FETCH_WEAPONS_BY_PARAM_START
@@ -19,19 +22,19 @@ export const fetchWeaponsByParamSuccess = ( fetchedWeapons ) => {
 }
 
 // need to combine fetch weapons and ships func in one.
-export const fetchWeaponsByParam = ( param ) => {
+export const fetchWeaponsByParam = ( params ) => {
+    const weapons = [];
     return dispatch => {
         dispatch(fetchWeaponsByParamStart());
-        axios.get( param )
+        params.map( param => {
+            axios.get( param )
             .then(res => {
-                console.log(res.data)
-                dispatch ( cutPagesLinks( res.data ) );
-                const fetchedWeapons = res.data.results;
-                dispatch( selectShip( null ));
-                dispatch( fetchWeaponsByParamSuccess( fetchedWeapons ));
+                weapons.push(res.data.results);
             })
             .catch(err => {
                 dispatch( fetchWeaponsByParamFail( err ))
-            })
+            })    
+        })
+        dispatch( fetchWeaponsByParamSuccess( weapons ));
     }
 }

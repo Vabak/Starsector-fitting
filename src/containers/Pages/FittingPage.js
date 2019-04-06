@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ShipFitting from '../ShipFitting'
+import ShipFitting from '../ShipFitting';
+import { connect } from 'react-redux';
 
 const StyledPage = styled.div`
     display: flex;
@@ -11,10 +12,15 @@ const FittingPage = ( props ) => {
     return (
         <StyledPage>
             <div>Weapons</div>
-            <ShipFitting />
+            {props.selectedShip ? <ShipFitting /> : null}
             <div>Paremeters</div> 
         </StyledPage>
     );
 }
- 
-export default FittingPage;
+
+const mapStateToProps = state => {
+    return {
+        selectedShip: state.shipSelection.selectedShip
+    }
+}
+export default connect( mapStateToProps ) (FittingPage);

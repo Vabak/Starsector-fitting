@@ -6,3 +6,7 @@ export {
 export { 
     selectShip
 } from './shipSelection';
+
+export { 
+    fetchWeaponsByParam
+} from './shipFitting';
