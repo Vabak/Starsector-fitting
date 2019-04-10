@@ -30,7 +30,7 @@ const Slot = ( props ) => {
     };
 
     return (
-        <StyledSlot locations={ props.locations } color={ color }/>
+        <StyledSlot locations={ props.locations } color={ color }>{props.children}</StyledSlot>
     );
 }
  

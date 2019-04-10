@@ -6,6 +6,7 @@ import axios from '../axios-base';
 
 import ShipSprite from '../components/UI/ShipSprite';
 import Slot from '../components/Slot';
+import WeaponSelection from './WeaponSelection';
 
 const FittingContainer = styled.div`
     position: relative;
@@ -50,7 +51,13 @@ class ShipFitting extends Component {
             slots = Object.keys(ship.weapon_slots)
             .filter( slot => ship.weapon_slots[slot]['type'] !== 'DECORATIVE' )
             .map( slot => {
-                return <Slot key={ slot } type={ ship.weapon_slots[slot]['type'] } locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )} />
+                return <Slot 
+                    key={ slot } 
+                    type={ ship.weapon_slots[slot]['type'] } 
+                    locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )}
+                    availableWeapons={ this.state.availableWeapons } >
+                    <WeaponSelection />
+                    </Slot>
             })  
         }
         return (
