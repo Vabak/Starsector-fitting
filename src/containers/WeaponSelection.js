@@ -5,7 +5,7 @@ class WeaponSelection extends Component {
     render() { 
         return (
             <div>container
-                <div>filters</div>
+                <div>sort</div>
                 <div>weapons
                     <div>weapon</div>
                 </div>
