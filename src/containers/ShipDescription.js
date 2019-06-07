@@ -16,6 +16,7 @@ const StyledDescription = styled.div`
     }
 `;
 
+
 class ShipDescription extends Component {
     componentDidUpdate(prevProps, prevState) {
         if ( prevProps.selectedShip.hull_id !== this.props.hull_id ) {        
@@ -37,7 +38,7 @@ class ShipDescription extends Component {
                         name={ ship.ship_name }
                         preview={ ship.sprite_name } />
                     <p>{ ship.description }</p>
-                    <ShipDataTable data={ship} />
+                    {/*<ShipDataTable data={ship} />*/}
                 </StyledDescription>
                 :
                 null
