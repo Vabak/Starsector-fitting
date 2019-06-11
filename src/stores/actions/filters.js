@@ -6,14 +6,14 @@ export const fetchFiltersStart = () => {
     return {
         type: actionTypes.FETCH_FILTERS_START
     }
-}
+};
 
 export const fetchFiltersFail = ( error ) => {
     return {
         type: actionTypes.FETCH_FILTERS_FAIL,
         error: error
     }
-}
+};
 
 export const fetchFiltersSuccess = ( name, options ) => {
     return {
@@ -21,7 +21,7 @@ export const fetchFiltersSuccess = ( name, options ) => {
         options: options,
         filterName: name
     }
-}
+};
 
 export const fetchFilters = ( name, url ) => {
     return dispatch => {
@@ -35,7 +35,7 @@ export const fetchFilters = ( name, url ) => {
                 dispatch(fetchFiltersFail( err ))
             })
     }
-}
+};
 
 export const fetchShipsByParam = ( param ) => {
     return dispatch => {
@@ -52,7 +52,7 @@ export const fetchShipsByParam = ( param ) => {
                 dispatch( fetchShipsByParamFail( err ))
             })
     }
-}
+};
 
 const cutPagesLinks = ( data ) => {
     return dispatch => {
@@ -65,34 +65,34 @@ const cutPagesLinks = ( data ) => {
             next = next.slice( next.lastIndexOf( '/' ) ) 
         } 
 
-        dispatch ( pagintationHandler( previous, next ) )   
+        dispatch ( paginationHandler( previous, next ) )
     }
-}
+};
 
 export const fetchShipsByParamStart = () => {
     return {
         type: actionTypes.FETCH_SHIPS_BY_PARAM_START
     }
-}
+};
 
 export const fetchShipsByParamFail = ( error ) => {
     return {
         type: actionTypes.FETCH_SHIPS_BY_PARAM_FAIL,
         error: error
     }
-}
+};
 
 export const fetchShipsByParamSuccess = ( fetchedShips ) => {
     return {
         type: actionTypes.FETCH_SHIPS_BY_PARAM_SUCCESS,
         ships: fetchedShips
     }
-}
+};
 
-export const pagintationHandler = ( previous, next ) => {
+export const paginationHandler = ( previous, next ) => {
     return {
-        type: actionTypes.PAGINTATION_HANDLER,
+        type: actionTypes.PAGINATION_HANDLER,
         previousPage: previous,
         nextPage: next
     }
-}
+};

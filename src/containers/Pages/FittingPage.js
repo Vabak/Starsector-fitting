@@ -9,18 +9,18 @@ const StyledPage = styled.div`
 `;
 
 const FittingPage = ( props ) => {
-    return (
-        <StyledPage>
-            <div>Weapons</div>
-            {props.selectedShip ? <ShipFitting /> : null}
-            <div>Paremeters</div> 
-        </StyledPage>
-    );
-}
+  return (
+      <StyledPage>
+        <div>Weapons</div>
+        { props.selectedShip ? <ShipFitting/> : null }
+        <div>Parameters</div>
+      </StyledPage>
+  );
+};
 
 const mapStateToProps = state => {
-    return {
-        selectedShip: state.shipSelection.selectedShip
-    }
-}
-export default connect( mapStateToProps ) (FittingPage);
+  return {
+    selectedShip: state.shipSelection.selectedShip
+  }
+};
+export default connect( mapStateToProps )( FittingPage );

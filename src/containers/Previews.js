@@ -25,12 +25,12 @@ const PreviewList = ( props ) => {
             { List }
         </StyledPreviewList>
         <div>
-            <Button value='Previous'
+            <Button
                 page={ props.previousPage }
-                changePage={ props.changePage } />
-            <Button value='Next'
+                changePage={ props.changePage }>Previous</Button>
+            <Button
                 page={ props.nextPage }
-                changePage={ props.changePage } />
+                    changePage={ props.changePage }>Next</Button>
         </div>
         </>
     );
