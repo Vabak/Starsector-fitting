@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83f91234-63c6-4692-9b8f-85703e05787a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/WeaponDescription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ShipDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ShipDescription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,11 +45,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/WeaponDescription.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="743">
               <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/UI/Button.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,6 +116,7 @@
         <option value="$PROJECT_DIR$/src/containers/ShipSelection.js" />
         <option value="$PROJECT_DIR$/src/containers/ShipDescription.js" />
         <option value="$PROJECT_DIR$/src/containers/WeaponDescription.js" />
+        <option value="$PROJECT_DIR$/src/components/UI/Button.js" />
       </list>
     </option>
   </component>
@@ -113,9 +126,9 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="520" />
-    <option name="y" value="206" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="248" />
+    <option name="y" value="80" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -124,7 +137,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,15 +159,24 @@
               <item name="Starsector-fitting" type="b2602c69:ProjectViewProjectNode" />
               <item name="Starsector-fitting" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Starsector-fitting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Starsector-fitting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -194,11 +215,12 @@
       <workItem from="1559904144457" duration="812000" />
       <workItem from="1559907122472" duration="2522000" />
       <workItem from="1559911098044" duration="1657000" />
+      <workItem from="1560247719922" duration="988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9653000" />
+    <option name="totallyTimeSpent" value="10641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -210,7 +232,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="520" y="206" width="1400" height="1000" extended-state="1" />
+    <frame x="248" y="80" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892008" visible="true" weight="0.24981844" />
@@ -317,6 +339,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
           <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UI/Button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

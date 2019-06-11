@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
     border: 2px solid black;
-    visibility: ${props => props.page ? 'visible' : 'hidden' } ;
-    width: 80px;
+    visibility: ${props => props.page ? 'visible' : 'hidden'} ;
     height: 20px;
     margin: 10px;
     font-family: 'Orbitron', sans-serif;
@@ -17,13 +16,13 @@ const StyledButton = styled.button`
     }
 `;
 
-const Button = ( props ) => {
-    return ( 
+const Button = (props) => {
+    return (
         <StyledButton
             page={props.page}
-            onClick={( e, page ) => props.changePage( e, props.page )}
-            >{ props.value }</StyledButton>
+            onClick={(e, page) => props.changePage(e, props.page)}
+        >{props.value}</StyledButton>
     );
 }
- 
+
 export default Button;
