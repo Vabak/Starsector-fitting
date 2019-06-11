@@ -20,9 +20,9 @@ const Button = (props) => {
     return (
         <StyledButton
             page={props.page}
-            onClick={(e, page) => props.changePage(e, props.page)}
-        >{props.value}</StyledButton>
+            onClick={(e) => props.changePage(e, props.page)}
+        >{props.children}</StyledButton>
     );
-}
+};
 
 export default Button;
