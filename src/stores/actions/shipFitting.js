@@ -2,39 +2,35 @@ import * as actionTypes from './actionTypes';
 import axios from '../../axios-base';
 
 export const fetchWeaponsByParamStart = () => {
-    return {
-        type: actionTypes.FETCH_WEAPONS_BY_PARAM_START
-    }
+  return {
+    type: actionTypes.FETCH_WEAPONS_BY_PARAM_START
+  }
 }
 
 export const fetchWeaponsByParamFail = ( error ) => {
-    return {
-        type: actionTypes.FETCH_WEAPONS_BY_PARAM_FAIL,
-        error: error
-    }
+  return {
+    type: actionTypes.FETCH_WEAPONS_BY_PARAM_FAIL,
+    error: error
+  }
 }
 
 export const fetchWeaponsByParamSuccess = ( fetchedWeapons ) => {
-    return {
-        type: actionTypes.FETCH_WEAPONS_BY_PARAM_SUCCESS,
-        weapons: fetchedWeapons
-    }
+  return {
+    type: actionTypes.FETCH_WEAPONS_BY_PARAM_SUCCESS,
+    availableWeapons: fetchedWeapons
+  }
 }
 
-// need to combine fetch weapons and ships func in one.
-export const fetchWeaponsByParam = ( params ) => {
-    const weapons = [];
-    return dispatch => {
-        dispatch(fetchWeaponsByParamStart());
-        params.map( param => {
-            axios.get( param )
-            .then(res => {
-                weapons.push(res.data.results);
-            })
-            .catch(err => {
-                dispatch( fetchWeaponsByParamFail( err ))
-            })    
-        })
-        dispatch( fetchWeaponsByParamSuccess( weapons ));
-    }
+export const fetchWeaponsByParam = ( param ) => {
+  return dispatch => {
+    dispatch( fetchWeaponsByParamStart() );
+    axios.get( param )
+        .then( res => {
+          const fetchedWeapons = Array.from(res.data);
+          dispatch( fetchWeaponsByParamSuccess( fetchedWeapons ) )
+        } )
+        .catch( error => {
+          dispatch( fetchWeaponsByParamFail( error ) )
+        } )
+  }
 }

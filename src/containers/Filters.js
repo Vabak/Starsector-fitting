@@ -15,68 +15,68 @@ const StyledDiv = styled.div`
 `;
 
 class Filters extends Component {
-    state = {
-        styleValue: '',
-        hullSizeValue: '',
-    }
+  state = {
+    styleValue: '',
+    hullSizeValue: '',
+  }
 
-    componentDidUpdate( prevProps, prevState ) {
-        if ( prevState.styleValue !== this.state.styleValue ||
-            prevState.hullSizeValue !== this.state.hullSizeValue ) {
-            this.fetchShips()
-        }
+  componentDidUpdate( prevProps, prevState ) {
+    if ( prevState.styleValue !== this.state.styleValue ||
+        prevState.hullSizeValue !== this.state.hullSizeValue ) {
+      this.fetchShips()
     }
-    
-    componentDidMount() {
-        this.props.onFetchFilters('styleOptions', 'filters/ships/style')
-        this.props.onFetchFilters('hullSizeOptions', 'filters/ships/hull_size')  
-        this.fetchShips()
-    }
+  }
 
-    fetchShips() {
-        let param = 'ships/';
-        const { styleValue, hullSizeValue } = this.state;
+  componentDidMount() {
+    this.props.onFetchFilters( 'styleOptions', 'filters/ships/style' )
+    this.props.onFetchFilters( 'hullSizeOptions', 'filters/ships/hull_size' )
+    this.fetchShips()
+  }
 
-        if ( !!( styleValue && hullSizeValue )) {
-            param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;
-        } else if (styleValue || hullSizeValue) {
-            param += '?' + ( hullSizeValue ? 'hull_size=' + hullSizeValue
-                                           : 'style=' + styleValue ); 
-        }
-        this.props.onFetchShips( param );
-    }
+  fetchShips() {
+    let param = 'ships/';
+    const { styleValue, hullSizeValue } = this.state;
 
-    onSelect = ( e, selectType ) => {
-        if ( selectType === 'style' ) {
-            this.setState({ styleValue: e.target.value })
-        }
-        if ( selectType === 'hull size' ) {
-            this.setState({ hullSizeValue: e.target.value })
-        }
+    if ( !!( styleValue && hullSizeValue ) ) {
+      param += '?hull_size=' + hullSizeValue + '&style=' + styleValue;
+    } else if ( styleValue || hullSizeValue ) {
+      param += '?' + ( hullSizeValue ? 'hull_size=' + hullSizeValue
+          : 'style=' + styleValue );
     }
+    this.props.onFetchShips( param );
+  }
 
-    render() {
-        return (
-            <StyledDiv>
-                <Select onSelect={this.onSelect} type='style' options={this.props.styleOptions} />
-                <Select onSelect={this.onSelect} type='hull size' options={this.props.hullSizeOptions} />
-            </StyledDiv>
-        );
+  onSelect = ( e, selectType ) => {
+    if ( selectType === 'style' ) {
+      this.setState( { styleValue: e.target.value } )
     }
+    if ( selectType === 'hull size' ) {
+      this.setState( { hullSizeValue: e.target.value } )
+    }
+  }
+
+  render() {
+    return (
+        <StyledDiv>
+          <Select onSelect={ this.onSelect } type='style' options={ this.props.styleOptions }/>
+          <Select onSelect={ this.onSelect } type='hull size' options={ this.props.hullSizeOptions }/>
+        </StyledDiv>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-        styleOptions: state.filters.styleOptions,
-        hullSizeOptions: state.filters.hullSizeOptions,
-    }
+  return {
+    styleOptions: state.filters.styleOptions,
+    hullSizeOptions: state.filters.hullSizeOptions,
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        onFetchShips: ( param ) => dispatch(actions.fetchShipsByParam( param )),
-        onFetchFilters: ( name, url ) => dispatch(actions.fetchFilters( name, url ))
-    };
+  return {
+    onFetchShips: ( param ) => dispatch( actions.fetchShipsByParam( param ) ),
+    onFetchFilters: ( name, url ) => dispatch( actions.fetchFilters( name, url ) )
+  };
 };
 
 export default connect( mapStateToProps, mapDispatchToProps )( Filters );

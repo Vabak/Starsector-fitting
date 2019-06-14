@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import ShipFitting from '../ShipFitting';
+import * as actions from '../../stores/actions/shipFitting'
 import { connect } from 'react-redux';
+import ShipFitting from '../ShipFitting';
+
 
 const StyledPage = styled.div`
     display: flex;
@@ -9,13 +11,22 @@ const StyledPage = styled.div`
 `;
 
 const FittingPage = ( props ) => {
-  return (
-      <StyledPage>
-        <div>Weapons</div>
-        { props.selectedShip ? <ShipFitting/> : null }
-        <div>Parameters</div>
-      </StyledPage>
-  );
+
+  useEffect( () => {
+    if ( props.selectedShip ) {
+      const param = '/available_weapons/' + props.selectedShip.hull_id
+      props.onFetchWeapons( param )
+    }
+
+  } )
+  return props.selectedShip ?
+      (
+          <StyledPage>
+            <div>Weapons</div>
+            { props.selectedShip ? <ShipFitting/> : null }
+            <div>Parameters</div>
+          </StyledPage>
+      ) : null
 };
 
 const mapStateToProps = state => {
@@ -23,4 +34,10 @@ const mapStateToProps = state => {
     selectedShip: state.shipSelection.selectedShip
   }
 };
-export default connect( mapStateToProps )( FittingPage );
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchWeapons: ( param ) => dispatch( actions.fetchWeaponsByParam( param ) )
+  }
+};
+export default connect( mapStateToProps, mapDispatchToProps )( FittingPage );
