@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import * as actions from '../../stores/actions/shipFitting'
 import { connect } from 'react-redux';
+
 import ShipFitting from '../ShipFitting';
+import WeaponsList from '../WeaponsList';
 
 
 const StyledPage = styled.div`
@@ -14,15 +16,16 @@ const FittingPage = ( props ) => {
 
   useEffect( () => {
     if ( props.selectedShip ) {
-      const param = '/available_weapons/' + props.selectedShip.hull_id
+      const param = '/available_weapons/' + props.selectedShip.hull_id;
       props.onFetchWeapons( param )
     }
 
-  } )
+  } );
+
   return props.selectedShip ?
       (
           <StyledPage>
-            <div>Weapons</div>
+            <WeaponsList ship={props.selectedShip} />
             { props.selectedShip ? <ShipFitting/> : null }
             <div>Parameters</div>
           </StyledPage>

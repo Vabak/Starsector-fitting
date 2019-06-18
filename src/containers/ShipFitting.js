@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-// import * as actions from '../stores/actions';
+import * as actions from '../stores/actions';
 import axios from '../axios-base';
 
 import ShipSprite from '../components/UI/ShipSprite';
@@ -56,7 +56,7 @@ class ShipFitting extends Component {
                     type={ ship.weapon_slots[slot]['type'] } 
                     locations={ this.getSlotCoordinates( ship.weapon_slots[slot] )}
                     availableWeapons={ this.state.availableWeapons } >
-                    <WeaponSelection />
+                    {/*<WeaponSelection />*/}
                     </Slot>
             })  
         }
@@ -82,10 +82,10 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onFetchWeapons: ( param ) => dispatch(actions.fetchWeaponsByParam( param )),
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchWeapons: ( param ) => dispatch(actions.fetchWeaponsByParam( param )),
+    }
+}
  
 export default connect( mapStateToProps )( ShipFitting );
