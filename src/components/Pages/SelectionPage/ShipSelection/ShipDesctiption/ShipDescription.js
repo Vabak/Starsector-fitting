@@ -47,25 +47,3 @@ class ShipDescription extends Component {
 }
  
 export default ShipDescription;
-
-// const ShipDescription = ( props ) => {
-
-//     const ship = props.ships.find( ship => {
-//         return ship.hull_id === props.selectedShip
-//     })
-//     return (
-//         ( props.selectedShip ) ?
-//             <StyledDescription>
-//                 <ShipPreview onClick={null}
-//                     className="disabled"
-//                     name={ ship.ship_name }
-//                     preview={ ship.sprite_name } />
-//                 <p>{ ship.description }</p>
-//                 <ShipDataTable data={ship} />
-//             </StyledDescription>
-//             :
-//             null
-//     );
-// }
-
-// export default ShipDescription;

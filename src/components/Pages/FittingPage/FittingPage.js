@@ -16,7 +16,7 @@ const FittingPage = ( props ) => {
 
   useEffect( () => {
     if ( props.selectedShip ) {
-      const param = '/available_weapons/' + props.selectedShip.hull_id;
+      const param = '/available_weapons/' + props.selectedShip.hull_id + '/';
       props.onFetchWeapons( param )
     }
 

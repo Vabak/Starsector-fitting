@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import * as actions from '../../../../stores/actions';
-import axios from '../../../../axios-base';
-
 import ShipSprite from '../../../UI/ShipSprite';
 import Slot from './Slot/Slot';
 import WeaponSelection from '../../../WeaponSelection';
@@ -18,20 +15,6 @@ class ShipFitting extends Component {
         weapons: null,
         availableWeapons: [],
     }
-
-    componentDidMount() {
-        this.fetchWeapons()
-    }
-    
-    fetchWeapons() {
-        axios.get( 'available_weapons/' + this.props.selectedShip.hull_id )
-            .then( res => {
-                this.setState({ availableWeapons: res.data})
-            } )
-            .catch( err => {
-                console.log( err )
-            })
-    } 
 
     getSlotCoordinates = ( slot ) => {
         const ship = Object.assign({}, this.props.selectedShip);
@@ -84,10 +67,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onFetchWeapons: ( param ) => dispatch(actions.fetchWeaponsByParam( param )),
-    }
-}
- 
 export default connect( mapStateToProps )( ShipFitting );

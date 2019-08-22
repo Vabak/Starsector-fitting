@@ -3,10 +3,14 @@ import styled from 'styled-components';
 
 const StyledLi = styled.li`
   border: solid 2px ${ props => props.color };
+  list-style: none;
+  min-width: 100px;
+  min-height: 50px;
 `;
 
 
 const WeaponsListItem = ( {type} ) => {
+
   let color = 'white';
   switch ( type ) {
     case 'ENERGY':
