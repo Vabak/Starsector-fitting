@@ -42,7 +42,6 @@ export const fetchShipsByParam = ( param ) => {
     dispatch( fetchShipsByParamStart() );
     axios.get( param )
         .then( res => {
-          console.log( res.data )
           dispatch( cutPagesLinks( res.data ) );
           const fetchedShips = res.data.results;
           dispatch( selectShip( null ) );
