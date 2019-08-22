@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../stores/actions/filters';
+import * as actions from '../../../../stores/actions/filters';
 import styled from 'styled-components';
 
-import Select from '../components/Select';
+import Select from './Select/Select';
 
 const StyledDiv = styled.div`
     display: flex;

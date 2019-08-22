@@ -1,8 +1,8 @@
 import React , { Component }from 'react';
 import styled from 'styled-components';
-import ShipSprite from '../components/UI/ShipSprite';
-import ShipPreview from '../components/ShipPreview';
-import ShipDataTable from '../components/ShipDataTable';
+import ShipSprite from '../../../../UI/ShipSprite';
+import ShipPreview from '../Previews/ShipPreview/ShipPreview';
+import ShipDataTable from '../../../../ShipDataTable';
 
 const StyledDescription = styled.div`
     height: auto;

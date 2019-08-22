@@ -1,7 +1,7 @@
 import React from 'react';
-import ShipPreview from '../components/ShipPreview';
+import ShipPreview from './ShipPreview/ShipPreview';
 import styled from 'styled-components';
-import Button from '../components/UI/Button';
+import Button from '../../../../UI/Button';
 
 const StyledPreviewList = styled.div`
     margin: 20px;

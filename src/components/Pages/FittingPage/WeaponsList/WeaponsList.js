@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import WeaponsListItem from '../components/WeaponsListItem';
+import WeaponsListItem from './WeaponListItem/WeaponsListItem';
 
 // const StyledWeaponsList = styled.ul`
 //

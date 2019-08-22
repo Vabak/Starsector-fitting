@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import * as actions from '../stores/actions/index'
-import Previews from './Previews';
-import ShipDescription from './ShipDescription';
+import * as actions from '../../../../stores/actions'
+import Previews from './Previews/Previews';
+import ShipDescription from './ShipDesctiption/ShipDescription';
 import styled from 'styled-components';
 
 const Container = styled.div`

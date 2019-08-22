@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import * as actions from '../stores/actions';
-import axios from '../axios-base';
+import * as actions from '../../../../stores/actions';
+import axios from '../../../../axios-base';
 
-import ShipSprite from '../components/UI/ShipSprite';
-import Slot from '../components/Slot';
-import WeaponSelection from './WeaponSelection';
+import ShipSprite from '../../../UI/ShipSprite';
+import Slot from './Slot/Slot';
+import WeaponSelection from '../../../WeaponSelection';
 
 const FittingContainer = styled.div`
     position: relative;
@@ -45,6 +45,7 @@ class ShipFitting extends Component {
     } 
 
     render() {
+
         const ship = Object.assign({}, this.props.selectedShip);
         let slots = null;
         if ( this.props.selectedShip ) {
@@ -60,6 +61,7 @@ class ShipFitting extends Component {
                     </Slot>
             })  
         }
+
         return (
             this.props.selectedShip ? 
             <div> 

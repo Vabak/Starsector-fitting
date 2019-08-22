@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import * as actions from '../../stores/actions/shipFitting'
+import * as actions from '../../../stores/actions/shipFitting'
 import { connect } from 'react-redux';
 
-import ShipFitting from '../ShipFitting';
-import WeaponsList from '../WeaponsList';
+import ShipFitting from './ShipFitting/ShipFitting';
+import WeaponsList from './WeaponsList/WeaponsList';
 
 
 const StyledPage = styled.div`
@@ -25,7 +25,7 @@ const FittingPage = ( props ) => {
   return props.selectedShip ?
       (
           <StyledPage>
-            <WeaponsList ship={props.selectedShip} />
+            <WeaponsList ship={ props.selectedShip }/>
             { props.selectedShip ? <ShipFitting/> : null }
             <div>Parameters</div>
           </StyledPage>

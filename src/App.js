@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import SelectionPage from './containers/Pages/SelectionPage';
-import FittingPage from './containers/Pages/FittingPage';
+import SelectionPage from './components/Pages/SelectionPage/SelectionPage';
+import FittingPage from './components/Pages/FittingPage/FittingPage';
 
 class App extends Component {
   render() {

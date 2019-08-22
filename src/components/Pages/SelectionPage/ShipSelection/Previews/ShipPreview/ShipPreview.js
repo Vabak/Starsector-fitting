@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ShipSprite from './UI/ShipSprite'
+import ShipSprite from '../../../../../UI/ShipSprite'
 
 
 const StyledPreview = styled.div`

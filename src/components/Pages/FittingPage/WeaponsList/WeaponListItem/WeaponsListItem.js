@@ -5,7 +5,6 @@ const StyledLi = styled.li`
   border: solid 2px ${ props => props.color };
 `;
 
-// should make a slots item in FittingPage cmp
 
 const WeaponsListItem = ( {type} ) => {
   let color = 'white';
@@ -22,7 +21,7 @@ const WeaponsListItem = ( {type} ) => {
     default:
       color = 'black';
   }
-  ;
+
   return (
       <StyledLi color={ color }>
         <div>sprite</div>
