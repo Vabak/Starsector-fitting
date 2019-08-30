@@ -3,14 +3,18 @@ import styled from 'styled-components';
 import Angle from "./Angle/Angle";
 
 const StyledSlot = styled.div`
-    width: 5px;
-    height: 5px;
+    opacity: 0.5;
+    width: 14px;
+    height: 14px;
     border: solid 2px ${ props => props.color };
     border-radius: 2px;
     z-index: 99;
     position: absolute;
     left: ${ props => props.locations.left + 'px' };
     bottom: ${ props => props.locations.bottom + 'px' };
+    &:hover {
+      opacity: 1;
+    }
 `;
 
 
@@ -35,7 +39,7 @@ const Slot = ( { type, angle, arc, ...props } ) => {
 
   return (
       <StyledSlot locations={ props.locations } color={ color }>
-        <Angle angle={angle} arc={arc} />
+        <Angle angle={angle} arc={arc} color={color} />
       </StyledSlot>
   );
 }
