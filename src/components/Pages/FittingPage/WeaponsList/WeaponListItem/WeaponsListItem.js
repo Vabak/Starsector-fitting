@@ -11,7 +11,7 @@ const StyledLi = styled.li`
 
 const WeaponsListItem = ( {type} ) => {
 
-  let color = 'white';
+  let color;
   switch ( type ) {
     case 'ENERGY':
       color = 'blue';

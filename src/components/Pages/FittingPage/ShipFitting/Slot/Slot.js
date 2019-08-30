@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Angle from "./Angle/Angle";
 
 const StyledSlot = styled.div`
     width: 5px;
@@ -12,10 +13,12 @@ const StyledSlot = styled.div`
     bottom: ${ props => props.locations.bottom + 'px' };
 `;
 
-const Slot = ( props ) => {
-  let color = 'white';
-  const slotType = props.type;
-  switch ( slotType ) {
+
+
+
+const Slot = ( { type, angle, arc, ...props } ) => {
+      let color;
+  switch ( type ) {
     case 'ENERGY':
       color = 'blue';
       break;
@@ -31,7 +34,9 @@ const Slot = ( props ) => {
   ;
 
   return (
-      <StyledSlot locations={ props.locations } color={ color }>{ props.children }</StyledSlot>
+      <StyledSlot locations={ props.locations } color={ color }>
+        <Angle angle={angle} arc={arc} />
+      </StyledSlot>
   );
 }
 
