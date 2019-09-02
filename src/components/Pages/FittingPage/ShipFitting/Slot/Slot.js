@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Angle from "./Angle/Angle";
 
 const StyledSlot = styled.div`
-    opacity: 0.5;
+    opacity: 0.7;
     width: 14px;
     height: 14px;
     border: solid 2px ${ props => props.color };
@@ -12,8 +12,14 @@ const StyledSlot = styled.div`
     position: absolute;
     left: ${ props => props.locations.left + 'px' };
     bottom: ${ props => props.locations.bottom + 'px' };
+    & svg {
+      opacity: 0;
+    }
     &:hover {
       opacity: 1;
+      & svg {
+      opacity: 1;
+      }
     }
 `;
 
