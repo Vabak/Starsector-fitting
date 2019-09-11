@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Angle from "./Angle/Angle";
+import Angle from './Angle/Angle';
+import WeaponsList from '../WeaponsList/WeaponsList';
 
 const StyledSlot = styled.div`
     opacity: 0.7;
@@ -24,10 +25,8 @@ const StyledSlot = styled.div`
 `;
 
 
-
-
-const Slot = ( { type, angle, arc, ...props } ) => {
-      let color;
+const Slot = ( { type, angle, arc, size, id, selectedSlot, ...props } ) => {
+  let color;
   switch ( type ) {
     case 'ENERGY':
       color = 'blue';
@@ -44,8 +43,9 @@ const Slot = ( { type, angle, arc, ...props } ) => {
   ;
 
   return (
-      <StyledSlot locations={ props.locations } color={ color }>
-        <Angle angle={angle} arc={arc} color={color} />
+      <StyledSlot locations={ props.locations } color={ color }  onClick={() => props.selectSlot(id) }>
+        <Angle angle={ angle } arc={ arc } color={ color }/>
+        {selectedSlot === id ? <WeaponsList size={ size } type={ type } slotId={ id }/> : null}
       </StyledSlot>
   );
 }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import ShipSprite from '../../../UI/ShipSprite';
 import Slot from './Slot/Slot';
-import WeaponSelection from '../../../WeaponSelection';
 
 const FittingContainer = styled.div`
     display: flex;
@@ -17,7 +16,6 @@ class ShipFitting extends Component {
   state = {
     selectedSlot: null,
     weapons: null,
-    availableWeapons: [],
   }
 
   getSlotCoordinates = ( slot ) => {
@@ -31,6 +29,11 @@ class ShipFitting extends Component {
     return locations;
   }
 
+  clickSlotHandler = ( slotId ) => {
+    console.log(slotId)
+    this.setState( { selectedSlot: slotId } )
+  }
+
   render() {
 
     const ship = Object.assign( {}, this.props.selectedShip );
@@ -41,20 +44,22 @@ class ShipFitting extends Component {
           .map( slot => {
             return <Slot
                 key={ slot }
+                id={ slot }
                 type={ ship.weapon_slots[slot]['type'] }
                 locations={ this.getSlotCoordinates( ship.weapon_slots[slot] ) }
                 availableWeapons={ this.state.availableWeapons }
                 arc={ ship.weapon_slots[slot]['arc'] }
-                angle={ ship.weapon_slots[slot]['angle'] }>
-              {/*<WeaponSelection />*/ }
-            </Slot>
+                angle={ ship.weapon_slots[slot]['angle'] }
+                size={ ship.weapon_slots[slot]['size'] }
+                selectSlot={ this.clickSlotHandler }
+                selectedSlot={ this.state.selectedSlot }/>
           } )
     }
 
     return (
         this.props.selectedShip ?
             <FittingContainer>
-              <div style={{position: 'relative'}}>
+              <div style={ { position: 'relative' } }>
                 <ShipSprite
                     name={ ship.ship_name }
                     preview={ ship.sprite_name }

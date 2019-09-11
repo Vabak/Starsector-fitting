@@ -4,7 +4,7 @@ import * as actions from '../../../stores/actions/shipFitting'
 import { connect } from 'react-redux';
 
 import ShipFitting from './ShipFitting/ShipFitting';
-import WeaponsList from './WeaponsList/WeaponsList';
+import WeaponsList from './SelectedWeaponsList/WeaponsList';
 
 
 const StyledPage = styled.div`
