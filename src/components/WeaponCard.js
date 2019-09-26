@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import WeaponSprite from './UI/WeaponSprite';
+import { useDispatch } from 'react-redux';
+import * as actions from '../stores/actions/shipFitting'
 
 const StyledCard = styled.li`
   display: flex;
@@ -21,9 +23,11 @@ const StyledCard = styled.li`
 `;
 
 
-const WeaponCard = ( {weapon} ) => {
+const WeaponCard = ( {weapon, slotId} ) => {
+  const dispatch = useDispatch();
+
     return ( 
-        <StyledCard>
+        <StyledCard onClick={() => dispatch(actions.selectWeapon(slotId, weapon))}>
             <WeaponSprite weapon={ weapon } />
             <div>
               <span>{weapon.name}</span>

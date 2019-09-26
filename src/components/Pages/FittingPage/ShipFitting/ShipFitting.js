@@ -30,8 +30,10 @@ class ShipFitting extends Component {
   }
 
   clickSlotHandler = ( slotId ) => {
-    console.log(slotId)
     this.setState( { selectedSlot: slotId } )
+  }
+  resetSelectedSlot = ( event ) => {
+    this.setState( { selectedSlot: null } )
   }
 
   render() {
@@ -58,7 +60,7 @@ class ShipFitting extends Component {
 
     return (
         this.props.selectedShip ?
-            <FittingContainer>
+            <FittingContainer onClick={ this.resetSelectedSlot }>
               <div style={ { position: 'relative' } }>
                 <ShipSprite
                     name={ ship.ship_name }

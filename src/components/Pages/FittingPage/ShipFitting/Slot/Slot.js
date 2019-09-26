@@ -14,7 +14,7 @@ const StyledSlot = styled.div`
     left: ${ props => props.locations.left + 'px' };
     bottom: ${ props => props.locations.bottom + 'px' };
     & svg {
-      opacity: 0;
+      opacity: ${ props => props.selected === props.id ? 1 : 0 };
     }
     &:hover {
       opacity: 1;
@@ -43,9 +43,17 @@ const Slot = ( { type, angle, arc, size, id, selectedSlot, ...props } ) => {
   ;
 
   return (
-      <StyledSlot locations={ props.locations } color={ color }  onClick={() => props.selectSlot(id) }>
+      <StyledSlot
+          locations={ props.locations }
+          color={ color }
+          id={ id }
+          selected={ selectedSlot }
+          onClick={ (e) => {
+            e.stopPropagation()
+            props.selectSlot( id )
+          } }>
         <Angle angle={ angle } arc={ arc } color={ color }/>
-        {selectedSlot === id ? <WeaponsList size={ size } type={ type } slotId={ id }/> : null}
+        { selectedSlot === id ? <WeaponsList size={ size } type={ type } slotId={ id }/> : null }
       </StyledSlot>
   );
 }

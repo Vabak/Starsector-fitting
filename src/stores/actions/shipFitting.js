@@ -34,3 +34,11 @@ export const fetchWeaponsByParam = ( param ) => {
         } )
   }
 };
+
+export const selectWeapon = ( slotId, selectedWeapon ) => {
+  return {
+    type: actionTypes.SELECT_WEAPON,
+    slotId: slotId,
+    selectedWeapon: selectedWeapon,
+  }
+}

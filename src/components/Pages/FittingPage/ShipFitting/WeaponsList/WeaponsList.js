@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Filter from './Filter/Filter';
-import { useSelector } from 'react-redux'
+import { useSelector, shallowEqual } from 'react-redux'
 import WeaponCard from '../../../../WeaponCard';
 
 const StyledCont = styled.div`
@@ -19,14 +19,14 @@ const StyledList = styled.ul`
   list-style: none; 
 `;
 
-const WeaponsList = ( { type, size } ) => {
+const WeaponsList = ( { type, size, slotId } ) => {
 
-  const availableWeapons = useSelector( state => state.shipFitting.availableWeapons );
+  const availableWeapons = useSelector( state => state.shipFitting.availableWeapons, shallowEqual );
   const weapons = availableWeapons
       .filter( weapon => {
         return ( type === 'COMPOSITE' || type === weapon.weapon_type ) && size === weapon.size
       } )
-      .map( weapon => <WeaponCard key={ weapon.weapon_id } weapon={ weapon }/> );
+      .map( weapon => <WeaponCard key={ weapon.weapon_id } weapon={ weapon } slotId={slotId}/> );
   return (
       <StyledCont>
         <div>

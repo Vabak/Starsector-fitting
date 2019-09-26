@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   availableWeapons: [],
+  selectedWeapons: {},
   error: null,
 };
 
@@ -20,6 +21,15 @@ const fetchWeaponsSuccess = ( state, action ) => {
   } );
 };
 
+const selectWeapon = ( state, action ) => {
+  return updateObject( state, {
+    selectedWeapons: {
+      ...state.selectedWeapons,
+      [action.slotId]: action.selectedWeapon,
+    }
+  } )
+}
+
 const reducer = ( state = initialState, action ) => {
   switch ( action.type ) {
     case actionTypes.FETCH_WEAPONS_BY_PARAM_START:
@@ -28,6 +38,8 @@ const reducer = ( state = initialState, action ) => {
       return fetchWeaponsFail( state, action );
     case actionTypes.FETCH_WEAPONS_BY_PARAM_SUCCESS:
       return fetchWeaponsSuccess( state, action );
+    case actionTypes.SELECT_WEAPON:
+      return selectWeapon( state, action );
     default:
       return state;
   }
