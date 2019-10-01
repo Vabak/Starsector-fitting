@@ -23,11 +23,15 @@ const StyledCard = styled.li`
 `;
 
 
-const WeaponCard = ( {weapon, slotId} ) => {
+const WeaponCard = ( {weapon, slotId, resetSlot} ) => {
   const dispatch = useDispatch();
 
     return ( 
-        <StyledCard onClick={() => dispatch(actions.selectWeapon(slotId, weapon))}>
+        <StyledCard onClick={(e) => {
+          e.stopPropagation()
+          dispatch(actions.selectWeapon(slotId, weapon))
+          resetSlot()
+        }}>
             <WeaponSprite weapon={ weapon } />
             <div>
               <span>{weapon.name}</span>

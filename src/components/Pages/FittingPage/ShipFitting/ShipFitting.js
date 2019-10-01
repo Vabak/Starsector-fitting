@@ -32,8 +32,9 @@ class ShipFitting extends Component {
   clickSlotHandler = ( slotId ) => {
     this.setState( { selectedSlot: slotId } )
   }
-  resetSelectedSlot = ( event ) => {
+  resetSelectedSlot = () => {
     this.setState( { selectedSlot: null } )
+    console.log('reset')
   }
 
   render() {
@@ -49,15 +50,15 @@ class ShipFitting extends Component {
                 id={ slot }
                 type={ ship.weapon_slots[slot]['type'] }
                 locations={ this.getSlotCoordinates( ship.weapon_slots[slot] ) }
-                availableWeapons={ this.state.availableWeapons }
                 arc={ ship.weapon_slots[slot]['arc'] }
                 angle={ ship.weapon_slots[slot]['angle'] }
                 size={ ship.weapon_slots[slot]['size'] }
                 selectSlot={ this.clickSlotHandler }
-                selectedSlot={ this.state.selectedSlot }/>
+                selectedSlot={ this.state.selectedSlot }
+                resetSlot={ this.resetSelectedSlot }
+                weapon={ this.props.selectedWeapons[slot] }/>
           } )
     }
-
     return (
         this.props.selectedShip ?
             <FittingContainer onClick={ this.resetSelectedSlot }>
@@ -76,7 +77,8 @@ class ShipFitting extends Component {
 
 const mapStateToProps = state => {
   return {
-    selectedShip: state.shipSelection.selectedShip
+    selectedShip: state.shipSelection.selectedShip,
+    selectedWeapons: state.shipFitting.selectedWeapons,
   }
 }
 

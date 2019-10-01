@@ -19,14 +19,14 @@ const StyledList = styled.ul`
   list-style: none; 
 `;
 
-const WeaponsList = ( { type, size, slotId } ) => {
+const WeaponsList = ( { type, size, slotId, resetSlot } ) => {
 
   const availableWeapons = useSelector( state => state.shipFitting.availableWeapons, shallowEqual );
   const weapons = availableWeapons
       .filter( weapon => {
         return ( type === 'COMPOSITE' || type === weapon.weapon_type ) && size === weapon.size
       } )
-      .map( weapon => <WeaponCard key={ weapon.weapon_id } weapon={ weapon } slotId={slotId}/> );
+      .map( weapon => <WeaponCard key={ weapon.weapon_id } weapon={ weapon } slotId={slotId} resetSlot={resetSlot}/> );
   return (
       <StyledCont>
         <div>

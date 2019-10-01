@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Angle from './Angle/Angle';
 import WeaponsList from '../WeaponsList/WeaponsList';
+import EquippedWeapon from './EquippedWeapon/EquppedWeapon';
 
 const StyledSlot = styled.div`
-    opacity: 0.7;
     width: 14px;
     height: 14px;
-    border: solid 2px ${ props => props.color };
+    border: solid 2px rgb(127, 0, 0.6);
     border-radius: 2px;
     z-index: 99;
     position: absolute;
+    align-items: center;
+    align-content: center;
     left: ${ props => props.locations.left + 'px' };
     bottom: ${ props => props.locations.bottom + 'px' };
     & svg {
@@ -25,7 +27,7 @@ const StyledSlot = styled.div`
 `;
 
 
-const Slot = ( { type, angle, arc, size, id, selectedSlot, ...props } ) => {
+const Slot = ( { type, angle, arc, size, id, selectedSlot, weapon, ...props } ) => {
   let color;
   switch ( type ) {
     case 'ENERGY':
@@ -53,7 +55,8 @@ const Slot = ( { type, angle, arc, size, id, selectedSlot, ...props } ) => {
             props.selectSlot( id )
           } }>
         <Angle angle={ angle } arc={ arc } color={ color }/>
-        { selectedSlot === id ? <WeaponsList size={ size } type={ type } slotId={ id }/> : null }
+        <EquippedWeapon weapon={weapon} />
+        { selectedSlot === id ? <WeaponsList size={ size } type={ type } slotId={ id } resetSlot={props.resetSlot}/> : null }
       </StyledSlot>
   );
 }
