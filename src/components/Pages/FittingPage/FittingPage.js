@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import ShipFitting from './ShipFitting/ShipFitting';
 import WeaponsList from './SelectedWeaponsList/WeaponsList';
+import ShipParameters from './ShipParameters/ShipParameters';
 
 
 const StyledPage = styled.div`
@@ -27,7 +28,7 @@ const FittingPage = ( props ) => {
           <StyledPage>
             <WeaponsList ship={ props.selectedShip }/>
             { props.selectedShip ? <ShipFitting/> : null }
-            <div>Parameters</div>
+            <ShipParameters/>
           </StyledPage>
       ) : null
 };

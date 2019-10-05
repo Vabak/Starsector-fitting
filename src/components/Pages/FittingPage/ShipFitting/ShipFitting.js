@@ -10,6 +10,7 @@ const FittingContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 600px;
+    //zoom: 2;
 `;
 
 class ShipFitting extends Component {

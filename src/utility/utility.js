@@ -11,11 +11,11 @@ export const createAction = ( type, payload ) => {
 
 export const baseURL = 'http://127.0.0.1:8000/';
 
-export const chooseColor = ( type ) => {
+export const chooseColorByType = ( type ) => {
   let color;
   switch ( type ) {
     case 'ENERGY':
-      color = 'blue';
+      color = '#43BEF2';
       break;
     case 'BALLISTIC':
       color = 'yellow';

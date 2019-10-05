@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import Angle from './Angle/Angle';
 import WeaponsList from '../WeaponsList/WeaponsList';
 import EquippedWeapon from './EquippedWeapon/EquppedWeapon';
+import { chooseColorByType } from '../../../../../utility/utility';
 
 const StyledSlot = styled.div`
     width: 14px;
     height: 14px;
-    border: solid 2px rgb(127, 0, 0.6);
+    border: solid 2px ${props => props.color};
     border-radius: 2px;
     z-index: 99;
     position: absolute;
@@ -28,22 +29,8 @@ const StyledSlot = styled.div`
 
 
 const Slot = ( { type, angle, arc, size, id, selectedSlot, weapon, ...props } ) => {
-  let color;
-  switch ( type ) {
-    case 'ENERGY':
-      color = 'blue';
-      break;
-    case 'BALLISTIC':
-      color = 'yellow';
-      break;
-    case 'MISSILE':
-      color = 'green';
-      break;
-    default:
-      color = 'white';
-  }
-  ;
 
+  const color = chooseColorByType( type )
   return (
       <StyledSlot
           locations={ props.locations }

@@ -33,7 +33,7 @@ const Angle = ( { type, angle, arc, color, ...props } ) => {
 
   return (
       <SvgAngle viewBox="0 0 116 116" angle={ rotateAngle }>
-          // unknown bug with color
+           {/*unknown bug with color**/}
           {/*<linearGradient id="opacity-gradient" >*/}
           {/*  <stop  stopOpacity="0.2" stopColor={ color } offset="0%"/>*/}
           {/*  <stop  stopOpacity="1" stopColor={ color } offset="20%"/>*/}
