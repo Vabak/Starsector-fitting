@@ -6,16 +6,26 @@ import EquippedWeapon from './EquippedWeapon/EquppedWeapon';
 import { chooseColorByType } from '../../../../../utility/utility';
 
 const StyledSlot = styled.div`
-    width: 14px;
-    height: 14px;
-    border: solid 2px ${props => props.color};
-    border-radius: 2px;
-    z-index: 99;
+    justify-content: center;
+    display: flex;
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    z-index: 2;
     position: absolute;
     align-items: center;
-    align-content: center;
     left: ${ props => props.locations.left + 'px' };
     bottom: ${ props => props.locations.bottom + 'px' };
+    ::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: -2px;
+      border: solid 2px ${ props => props.color };
+      border-radius: 2px;
+      transform: rotate(${ props => props.angle + 'deg' });
+    }
     & svg {
       opacity: ${ props => props.selected === props.id ? 1 : 0 };
     }
@@ -31,19 +41,23 @@ const StyledSlot = styled.div`
 const Slot = ( { type, angle, arc, size, id, selectedSlot, weapon, ...props } ) => {
 
   const color = chooseColorByType( type )
+
+  const rotateAngle = -90 - angle;
   return (
       <StyledSlot
           locations={ props.locations }
+          angle={rotateAngle}
           color={ color }
           id={ id }
           selected={ selectedSlot }
-          onClick={ (e) => {
+          onClick={ ( e ) => {
             e.stopPropagation()
             props.selectSlot( id )
           } }>
         <Angle angle={ angle } arc={ arc } color={ color }/>
-        <EquippedWeapon weapon={weapon} />
-        { selectedSlot === id ? <WeaponsList size={ size } type={ type } slotId={ id } resetSlot={props.resetSlot}/> : null }
+        <EquippedWeapon weapon={ weapon } angle={ angle }/>
+        { selectedSlot === id ?
+            <WeaponsList size={ size } type={ type } slotId={ id } resetSlot={ props.resetSlot }/> : null }
       </StyledSlot>
   );
 }

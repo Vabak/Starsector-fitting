@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 
 const SvgAngle = styled.svg`
-  top: -75px;
-  left: -68px;
+  top: -67px;
+  left: -69px;
   position: absolute;
   transform: rotate(${ props => props.angle + "deg" });
   height: 150px;

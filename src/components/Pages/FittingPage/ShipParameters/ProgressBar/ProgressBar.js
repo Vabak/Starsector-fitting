@@ -17,6 +17,7 @@ const ProgressStatus = styled.div`
 `;
 
 const ProgressText = styled.span`
+  font-weight: bold;
   font-size: 14px;
   line-height: 14px;
   text-transform: uppercase;

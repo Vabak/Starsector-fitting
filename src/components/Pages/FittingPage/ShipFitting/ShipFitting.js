@@ -25,8 +25,8 @@ class ShipFitting extends Component {
     const [slotX, slotY] = slot.locations;
     const [centerX, centerY] = center;
     const locations = {};
-    locations.left = centerX - slotY - 9;
-    locations.bottom = centerY + slotX - 9;
+    locations.left = centerX - slotY - 6;
+    locations.bottom = centerY + slotX - 6;
     return locations;
   }
 
@@ -35,7 +35,6 @@ class ShipFitting extends Component {
   }
   resetSelectedSlot = () => {
     this.setState( { selectedSlot: null } )
-    console.log('reset')
   }
 
   render() {
