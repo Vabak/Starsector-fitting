@@ -4,7 +4,7 @@ import { baseURL } from '../../../../../../utility/utility';
 
 const WeaponSprite = styled.img`
   transform: rotate(${ props => props.angle + 'deg' });
-  
+  flex-shrink: 0;
 `;
 
 const EquippedWeapon = ({weapon, angle}) => {

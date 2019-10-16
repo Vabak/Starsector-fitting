@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { chooseColorByType } from '../../../../../utility/utility';
 
 const StyledLi = styled.li`
   border: solid 2px ${ props => props.color };
@@ -10,21 +11,7 @@ const StyledLi = styled.li`
 
 
 const WeaponsListItem = ( {type} ) => {
-
-  let color;
-  switch ( type ) {
-    case 'ENERGY':
-      color = 'blue';
-      break;
-    case 'BALLISTIC':
-      color = 'yellow';
-      break;
-    case 'MISSILE':
-      color = 'green';
-      break;
-    default:
-      color = 'black';
-  }
+  const color = chooseColorByType( type )
 
   return (
       <StyledLi color={ color }>

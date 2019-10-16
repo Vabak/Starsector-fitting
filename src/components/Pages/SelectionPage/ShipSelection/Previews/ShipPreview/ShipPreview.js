@@ -15,6 +15,7 @@ const StyledPreview = styled.div`
     justify-content: flex-start;
     overflow: hidden;
     font-family: 'Orbitron', sans-serif;
+    color: antiquewhite;
     &.disabled {
         border: none;
         pointer-events: none;
