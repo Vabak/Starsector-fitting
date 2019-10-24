@@ -11,7 +11,7 @@ const StyledCard = styled.li`
   align-items: center;
   padding: 0;
   margin: 0;
-  background-color: #000000;
+  background-color: #2e0000;
   height: 80px;
   box-sizing: border-box;
   color: #d7d7d7;

@@ -28,7 +28,7 @@ const FittingPage = ( props ) => {
           <StyledPage>
             <WeaponsList ship={ props.selectedShip }/>
             { props.selectedShip ? <ShipFitting/> : null }
-            <ShipParameters/>
+            <ShipParameters ship={props.selectedShip}/>
           </StyledPage>
       ) : null
 };

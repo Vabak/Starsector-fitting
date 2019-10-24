@@ -11,14 +11,14 @@ const Progress = styled.div`
 `;
 
 const ProgressStatus = styled.div`
-  width: ${ props => props.statusValue};
+  width: ${ props => props.progressValue};
   height: 100%;
   background-color: #1ca8ff;
 `;
 
 const ProgressText = styled.span`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 14px;
   text-transform: uppercase;
   position: absolute;
@@ -27,11 +27,11 @@ const ProgressText = styled.span`
 `;
 
 
-const ProgressBar = () => {
+const ProgressBar = ({ordnancePoints}) => {
   return (
       <Progress>
-        <ProgressStatus statusValue={"25%"}/>
-        <ProgressText>25</ProgressText>
+        <ProgressStatus progressValue={"25%"}/>
+        <ProgressText>0/{ordnancePoints}</ProgressText>
       </Progress>
   );
 };
