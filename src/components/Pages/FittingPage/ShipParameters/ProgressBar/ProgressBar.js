@@ -19,11 +19,10 @@ const ProgressStatus = styled.div`
 const ProgressText = styled.span`
   font-weight: bold;
   font-size: 16px;
-  line-height: 14px;
   text-transform: uppercase;
   position: absolute;
-  left: 50%;
-  top: 25%;
+  left: 45%;
+  top: 27%;
 `;
 
 

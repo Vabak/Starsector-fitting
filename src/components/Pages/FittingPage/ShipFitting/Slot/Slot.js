@@ -11,11 +11,11 @@ const StyledSlot = styled.div`
     width: 12px;
     height: 12px;
     box-sizing: border-box;
-    z-index: 2;
     position: absolute;
     align-items: center;
     left: ${ props => props.locations.left + 'px' };
     bottom: ${ props => props.locations.bottom + 'px' };
+    overflow: visible;
     ::before {
       content: '';
       position: absolute;
@@ -25,14 +25,17 @@ const StyledSlot = styled.div`
       border: solid 2px ${ props => props.color };
       border-radius: 2px;
       transform: rotate(${ props => props.angle + 'deg' });
+      opacity: 0.6;
     }
     & svg {
       opacity: ${ props => props.selected === props.id ? 1 : 0 };
     }
     &:hover {
-      opacity: 1;
+      ::before {
+        opacity: 1;
+      }
       & svg {
-      opacity: 1;
+        opacity: 1;
       }
     }
 `;
