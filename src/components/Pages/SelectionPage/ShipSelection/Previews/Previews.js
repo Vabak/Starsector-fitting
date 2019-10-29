@@ -5,6 +5,7 @@ import Button from '../../../../UI/Button';
 
 const StyledPreviewList = styled.div`
     margin: 20px;
+    margin-top: 40px;
     height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));

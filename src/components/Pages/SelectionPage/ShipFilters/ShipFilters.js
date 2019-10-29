@@ -11,9 +11,12 @@ const StyledDiv = styled.div`
     flex-direction: column; 
     background-color: gray;
     min-height: 100%;
-    padding: 30px 5px;
-    width: 180px;
+    padding-top: ${({show}) => show ? "5px" : "0"};
+    width: ${({show}) => show ? "180px" : "0"};
+    overflow-x: hidden;
+    transition: 0.2s
 `;
+
 
 class ShipFilters extends Component {
   state = {
@@ -56,9 +59,11 @@ class ShipFilters extends Component {
     }
   }
 
+
   render() {
     return (
-        <StyledDiv>
+        <StyledDiv show={ this.props.isShow }>
+          <Button buttonClickHandler={ this.props.buttonHandler } buttonArg={this.props.isShow}>Close</Button>
           <Select onSelect={ this.onSelect } type='style' options={ this.props.styleOptions }/>
           <Select onSelect={ this.onSelect } type='hull size' options={ this.props.hullSizeOptions }/>
         </StyledDiv>
