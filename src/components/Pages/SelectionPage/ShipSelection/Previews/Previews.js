@@ -26,11 +26,11 @@ const PreviewList = ( props ) => {
         </StyledPreviewList>
         <div>
           <Button
-              page={ props.previousPage }
-              changePage={ props.changePage }>Previous</Button>
+              buttonArg={ props.previousPage }
+              buttonClickHandler={ props.changePage }>Previous</Button>
           <Button
-              page={ props.nextPage }
-              changePage={ props.changePage }>Next</Button>
+              buttonArg={ props.nextPage }
+              buttonClickHandler={ props.changePage }>Next</Button>
         </div>
       </>
   );

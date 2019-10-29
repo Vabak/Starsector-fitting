@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Filters from './Filters/Filters';
+import Filters from './ShipFilters/ShipFilters';
 import ShipSelection from './ShipSelection/ShipSelection'
 
 

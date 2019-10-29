@@ -11,7 +11,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex-grow: 3;
-    font-family: 'Roboto';
 `;
 
 class ShipSelection extends Component {

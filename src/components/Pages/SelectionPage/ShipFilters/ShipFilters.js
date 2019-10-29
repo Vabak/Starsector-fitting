@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../stores/actions/filters';
 import styled from 'styled-components';
+import Button from '../../../UI/Button';
 
 import Select from './Select/Select';
 
@@ -14,7 +15,7 @@ const StyledDiv = styled.div`
     width: 180px;
 `;
 
-class Filters extends Component {
+class ShipFilters extends Component {
   state = {
     styleValue: '',
     hullSizeValue: '',
@@ -79,4 +80,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( Filters );
+export default connect( mapStateToProps, mapDispatchToProps )( ShipFilters );
