@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
     border: 2px solid black;
+    box-sizing: content-box;
     visibility: ${ props => props.buttonArg ? 'visible' : 'hidden' } ;
     height: 20px;
     margin: 10px;
