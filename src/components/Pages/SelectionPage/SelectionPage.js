@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import styled from  'styled-components';
 
 import Filters from './ShipFilters/ShipFilters';
 import ShipSelection from './ShipSelection/ShipSelection';
 import Button from '../../UI/Button';
 
+const AbsPositionButton = styled(Button)`
+  position: absolute;
+  left: 20px;
+`;
 
 class SelectionPage extends Component {
   state = {
@@ -22,10 +27,9 @@ class SelectionPage extends Component {
           <Filters
             buttonHandler = {this.buttonHandler}
             isShow={this.state.isSidebarShow}/>
-          <Button
-              position="absolute"
+          <AbsPositionButton
               buttonClickHandler={this.buttonHandler}
-              buttonArg={!this.state.isSidebarShow}>Open</Button>
+              isShow={!this.state.isSidebarShow}>Open</AbsPositionButton>
           <ShipSelection/>
         </div>
     );
