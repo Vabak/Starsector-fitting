@@ -38,7 +38,7 @@ class ShipDescription extends Component {
                         name={ ship.ship_name }
                         preview={ ship.sprite_name } />
                     <p>{ ship.description }</p>
-                    {/*<ShipDataTable data={ship} />*/}
+                    <ShipDataTable data={ship} />
                 </StyledDescription>
                 :
                 null
